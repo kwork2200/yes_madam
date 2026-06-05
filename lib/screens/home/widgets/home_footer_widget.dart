@@ -16,12 +16,12 @@ class HomeFooterWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      color: AppColors.greyLight,
+      color: const Color(0xFFF1F0F5),
       padding: EdgeInsets.fromLTRB(
         AppDimensions.paddingXMedium.w,
-        AppDimensions.paddingXLarge40.h,
+        40.h,
         AppDimensions.paddingXMedium.w,
-        AppDimensions.paddingXLarge40.h + AppDimensions.paddingSmall.h,
+        52.h,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,7 +30,7 @@ class HomeFooterWidget extends StatelessWidget {
             text: AppTexts.indiasMostLovedApp,
             fontSize: AppFontSizes.fontXLarge26,
             fontWeight: AppFontWeights.black,
-            color: AppColors.grey400,
+            color: const Color(0xFFC4C2C8),
             textHeight: 1.35,
             softWrap: true,
           ),
@@ -43,14 +43,14 @@ class HomeFooterWidget extends StatelessWidget {
                 text: AppTexts.craftedWith,
                 fontSize: AppFontSizes.fontSmall,
                 fontWeight: AppFontWeights.semiBold,
-                color: AppColors.grey300,
+                color: const Color(0xFF9C9AA1),
               ),
-              Icon(Icons.favorite, color: AppColors.themeColor, size: AppFontSizes.fontMedium.sp),
+              Icon(Icons.favorite, color: AppColors.themeColor, size: 18.sp),
               CommonText(
                 text: AppTexts.byTeam,
                 fontSize: AppFontSizes.fontSmall,
                 fontWeight: AppFontWeights.semiBold,
-                color: AppColors.grey300,
+                color: const Color(0xFF9C9AA1),
               ),
               YesMadamLogo(color: AppColors.greyColor,height: 30.h,width: 100.w),
             ],

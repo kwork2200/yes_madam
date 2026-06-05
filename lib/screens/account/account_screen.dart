@@ -52,7 +52,7 @@ class AccountScreen extends GetView<AccountController> {
                         subtitle: AppTexts.coinsAndFreeServices,
                         trailing: Row(
                           children: [
-                            _coinBadge('R', AppColors.orange, '0'),
+                            _coinBadge('R', Colors.orange, '0'),
                             Spacing.width(5),
                             Icon(
                               Icons.arrow_forward_ios,
@@ -91,7 +91,7 @@ class AccountScreen extends GetView<AccountController> {
                         );
                       }),
                     ]),
-                    SizedBox(height: AppDimensions.spacingXLarge.h + AppDimensions.spacingSmall.h),
+                    SizedBox(height: AppDimensions.spacingXLarge.h + 8.h),
                     YesMadamLogo(
                       height: 30.h,
                       width: 120.w,
@@ -103,7 +103,7 @@ class AccountScreen extends GetView<AccountController> {
                       color: AppColors.greyColor,
                       fontWeight: AppFontWeights.originalBold,
                     ),
-                    Spacing.height(AppDimensions.paddingXLarge40.h),
+                    Spacing.height(50),
                   ],
                 ),
               ),
@@ -274,7 +274,8 @@ class AccountScreen extends GetView<AccountController> {
               children: [
                 Expanded(
                   child: CommonText(
-                    text: AppTexts.eliteSavings,
+                    text:
+                        'You will save more than 3X of the price you pay for Elite',
                     fontSize: AppFontSizes.fontSmall,
                     color: AppColors.darkColor,
                     softWrap: true,
@@ -282,11 +283,11 @@ class AccountScreen extends GetView<AccountController> {
                 ),
                 SizedBox(width: AppDimensions.spacingMedium.w),
                 CommonButton(
-                  text: AppTexts.joinElite,
+                  text: 'Join Elite @ ₹249',
                   onPressed: () {},
                   backgroundColor: AppColors.darkColor,
-                  fontSize: AppFontSizes.fontNenoSmall,
-                  height: AppDimensions.paddingXLarge40.h,
+                  fontSize: 11.sp,
+                  height: 36.h,
                 ),
               ],
             ),
@@ -307,7 +308,7 @@ class AccountScreen extends GetView<AccountController> {
             child: GestureDetector(
               onTap: action['onTap'],
               child: Container(
-                margin: EdgeInsets.symmetric(horizontal: AppDimensions.spacingSmall.w),
+                margin: EdgeInsets.symmetric(horizontal: 4.w),
                 padding: EdgeInsets.symmetric(
                   vertical: AppDimensions.paddingSmall.w,
                 ),
@@ -320,8 +321,8 @@ class AccountScreen extends GetView<AccountController> {
                 child: Column(
                   children: [
                     Container(
-                      width: AppDimensions.iconLarge.w,
-                      height: AppDimensions.iconLarge.w,
+                      width: 35.w,
+                      height: 35.w,
                       decoration: BoxDecoration(
                         color: AppColors.greyLight,
                         borderRadius: BorderRadius.circular(
@@ -334,10 +335,10 @@ class AccountScreen extends GetView<AccountController> {
                         size: AppDimensions.iconMedium.sp - 3.sp,
                       ),
                     ),
-                    SizedBox(height: AppDimensions.spacingSmall.h),
+                    SizedBox(height: 6.h),
                     CommonText(
                       text: action['title'],
-                      fontSize: AppFontSizes.fontNenoSmall,
+                      fontSize: 11.sp,
                       color: AppColors.darkColor,
                       fontWeight: AppFontWeights.bold,
                     ),
@@ -355,7 +356,7 @@ class AccountScreen extends GetView<AccountController> {
     final menuItems = [
       {
         'icon': Icons.share_outlined,
-        'title': AppTexts.shareApp,
+        'title': 'Share the App',
         'onTap': () async {
           await Share.share(
             'Check out this app: https://play.google.com/store/apps/details?id=com.yourapp.package',
@@ -364,34 +365,34 @@ class AccountScreen extends GetView<AccountController> {
       },
       {
         'icon': Icons.info_outline,
-        'title': AppTexts.aboutUs,
+        'title': 'About Us',
         'onTap': () => Get.toNamed(AppRoutes.aboutUs),
       },
       {
         'icon': Icons.security_outlined,
-        'title': AppTexts.privacyPolicyLabel,
+        'title': 'Privacy Policy',
         'onTap': () => Get.toNamed(AppRoutes.privacyPolicy),
       },
       {
         'icon': Icons.description_outlined,
-        'title': AppTexts.termsConditionsLabel,
+        'title': 'Terms & Conditions',
         'onTap': () => Get.toNamed(AppRoutes.termsConditions),
       },
       {
         'icon': Icons.notifications_outlined,
-        'title': AppTexts.notificationPreferences,
+        'title': 'Notification preferences',
         'onTap': () => Get.toNamed(AppRoutes.notifications),
       },
       {
         'icon': Icons.contact_page_outlined,
-        'title': AppTexts.contactUs,
+        'title': 'Contact Us',
         'onTap': () => Get.toNamed(AppRoutes.contactUs),
       },
     ];
 
     return _menuSection([
-      _sectionTitle(AppTexts.otherInfo),
-      Spacing.height(AppDimensions.spacingSmall.h),
+      _sectionTitle('Other Information'),
+      Spacing.height(5),
       ...List.generate(menuItems.length, (index) {
         final item = menuItems[index];
         return Column(
@@ -405,7 +406,7 @@ class AccountScreen extends GetView<AccountController> {
           ],
         );
       }),
-      Spacing.height(AppDimensions.spacingMedium.h),
+      Spacing.height(10),
     ]);
   }
 
@@ -414,7 +415,7 @@ class AccountScreen extends GetView<AccountController> {
       margin: EdgeInsets.symmetric(horizontal: AppDimensions.spacingLarge.w),
       decoration: BoxDecoration(
         color: AppColors.whiteColor,
-        borderRadius: BorderRadius.circular(AppDimensions.radiusLarge.r),
+        borderRadius: BorderRadius.circular(AppDimensions.radiusXLarge.r - 4.r),
       ),
       child: Column(children: children),
     );
@@ -487,7 +488,7 @@ class AccountScreen extends GetView<AccountController> {
         alignment: Alignment.centerLeft,
         child: CommonText(
           text: title,
-          fontSize: AppFontSizes.fontXMedium,
+          fontSize: 16.sp,
           fontWeight: AppFontWeights.bold,
           color: AppColors.darkColor,
         ),
@@ -502,22 +503,22 @@ class AccountScreen extends GetView<AccountController> {
 
   Widget _coinBadge(String letter, Color color, String count) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: AppDimensions.spacingSmall.w, vertical: AppDimensions.spacingSmall.h),
+      padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
       decoration: BoxDecoration(
-        color: AppColors.themeColor.withOpacity(0.1),
-        borderRadius: BorderRadius.circular(AppDimensions.radiusCircle.r),
+        color: Colors.purple.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(20.r),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            width: AppDimensions.iconSmall.w,
-            height: AppDimensions.iconSmall.w,
+            width: 16.w,
+            height: 16.w,
             decoration: BoxDecoration(color: color, shape: BoxShape.circle),
             child: Center(
               child: CommonText(
                 text: letter,
-                fontSize: AppFontSizes.fontNenoSmall,
+                fontSize: AppFontSizes.fontNenoSmall - 2.sp,
                 fontWeight: AppFontWeights.bold,
                 color: AppColors.whiteColor,
               ),

@@ -17,7 +17,7 @@ class HomeCreatePackageWidget extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingSmall.w),
+      padding: EdgeInsets.symmetric(horizontal: 14.w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -27,14 +27,14 @@ class HomeCreatePackageWidget extends GetView<HomeController> {
             fontWeight: AppFontWeights.semiBold,
             color: AppColors.black,
           ),
-          Spacing.height(AppDimensions.spacingLarge.h),
+          Spacing.height(AppDimensions.spacingLarge),
           SizedBox(
-            height: AppDimensions.paddingXLarge60 * 5.h,
+            height: 340.h,
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
               itemCount: controller.packageList.length,
               separatorBuilder: (_, __) =>
-                  Spacing.width(AppDimensions.spacingLarge.w),
+                  Spacing.width(AppDimensions.spacingLarge),
               itemBuilder: (_, index) {
                 return CreatePackageCardWidget(
                   package: controller.packageList[index],
@@ -43,7 +43,7 @@ class HomeCreatePackageWidget extends GetView<HomeController> {
               },
             ),
           ),
-          Spacing.height(AppDimensions.paddingLarge.h),
+          Spacing.height(20),
         ],
       ),
     );
@@ -65,7 +65,7 @@ class CreatePackageCardWidget extends GetView<HomeController> {
     final List<String> packageItems = List<String>.from(package['items']);
 
     return Container(
-      width: AppDimensions.paddingXLarge60 * 5.w,
+      width: 300.w,
       padding: EdgeInsets.all(AppDimensions.paddingSmall.w),
       decoration: BoxDecoration(
         color: AppColors.whiteColor,
@@ -74,8 +74,8 @@ class CreatePackageCardWidget extends GetView<HomeController> {
         boxShadow: [
           BoxShadow(
             color: AppColors.grey300,
-            blurRadius: AppDimensions.spacingSmall.r,
-            offset: Offset(0, AppDimensions.spacingSmall),
+            blurRadius: 2.r,
+            offset: Offset(0, 2),
           ),
         ],
       ),
@@ -85,22 +85,22 @@ class CreatePackageCardWidget extends GetView<HomeController> {
           Row(
             children: [
               Container(
-                width: AppDimensions.paddingXLarge40 * 2.w,
-                height: AppDimensions.paddingXLarge40 * 2.h,
+                width: 90.w,
+                height: 90.h,
                 decoration: BoxDecoration(
                   color: AppColors.primaryLight,
-                  borderRadius: BorderRadius.circular(AppDimensions.radiusSmall.r),
+                  borderRadius: BorderRadius.circular(8.r),
                 ),
                 child: GridView.count(
                   crossAxisCount: 2,
                   physics: const NeverScrollableScrollPhysics(),
-                  padding: EdgeInsets.all(AppDimensions.spacingSmall.w),
-                  crossAxisSpacing: AppDimensions.spacingSmall.w,
-                  mainAxisSpacing: AppDimensions.spacingSmall.h,
+                  padding: EdgeInsets.all(4.w),
+                  crossAxisSpacing: 3.w,
+                  mainAxisSpacing: 3.h,
                   children: List.generate(
                     4,
                     (index) => ClipRRect(
-                      borderRadius: BorderRadius.circular(AppDimensions.spacingSmall.r),
+                      borderRadius: BorderRadius.circular(4.r),
                       child: Image.network(
                         package['images'][index],
                         fit: BoxFit.cover,
@@ -126,7 +126,7 @@ class CreatePackageCardWidget extends GetView<HomeController> {
                       color: AppColors.grey,
                       fontWeight: AppFontWeights.semiBold,
                     ),
-                    Spacing.height(AppDimensions.spacingSmall.h),
+                    Spacing.height(AppDimensions.spacingSmall),
                     Row(
                       children: [
                         CommonText(
@@ -135,7 +135,7 @@ class CreatePackageCardWidget extends GetView<HomeController> {
                           fontWeight: AppFontWeights.extraBold,
                           color: AppColors.black,
                         ),
-                        Spacing.width(AppDimensions.spacingSmall.w),
+                        Spacing.width(4),
                         CommonText(
                           text: package['mrp'],
                           fontSize: AppFontSizes.fontSmall,
@@ -143,10 +143,10 @@ class CreatePackageCardWidget extends GetView<HomeController> {
                           decoration: TextDecoration.lineThrough,
                           decorationColor: AppColors.grey,
                         ),
-                        Spacing.width(AppDimensions.spacingSmall.w),
+                        Spacing.width(4),
                         Container(
-                          height: AppDimensions.paddingSmall.h,
-                          width: AppDimensions.paddingSmall.w,
+                          height: 15.h,
+                          width: 15.w,
                           decoration: const BoxDecoration(
                             color: AppColors.green,
                             shape: BoxShape.circle,
@@ -154,7 +154,7 @@ class CreatePackageCardWidget extends GetView<HomeController> {
                           child: Icon(
                             Icons.percent,
                             color: AppColors.whiteColor,
-                            size: AppFontSizes.fontNenoSmall.sp,
+                            size: 12.sp,
                           ),
                         ),
                         CommonText(
@@ -169,10 +169,10 @@ class CreatePackageCardWidget extends GetView<HomeController> {
                       children: [
                         Icon(
                           Icons.access_time,
-                          size: AppFontSizes.fontSmall.sp,
+                          size: 14.sp,
                           color: AppColors.grey,
                         ),
-                        Spacing.width(AppDimensions.spacingSmall.w),
+                        Spacing.width(3),
                         CommonText(
                           text: package['duration'],
                           fontSize: AppFontSizes.fontSmall,
@@ -185,18 +185,18 @@ class CreatePackageCardWidget extends GetView<HomeController> {
               ),
             ],
           ),
-          Spacing.height(AppDimensions.spacingLarge.h),
+          Spacing.height(AppDimensions.spacingLarge),
           ...packageItems.map((item) {
             final parts = item.split(':');
             return Padding(
-              padding: EdgeInsets.only(bottom: AppDimensions.spacingSmall.h),
+              padding: EdgeInsets.only(bottom: 6.h),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    margin: EdgeInsets.only(top: AppDimensions.spacingSmall.h, right: AppDimensions.spacingSmall.w),
-                    width: AppDimensions.spacingSmall.w,
-                    height: AppDimensions.spacingSmall.w,
+                    margin: EdgeInsets.only(top: 5.h, right: 6.w),
+                    width: 5.w,
+                    height: 5.w,
                     decoration: const BoxDecoration(
                       color: AppColors.black,
                       shape: BoxShape.circle,
@@ -235,18 +235,18 @@ class CreatePackageCardWidget extends GetView<HomeController> {
           Row(
             children: [
               Container(
-                padding: EdgeInsets.all(AppDimensions.spacingSmall.r),
+                padding: EdgeInsets.all(4.r),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(color: AppColors.grey200),
                 ),
-                child: Icon(Icons.share, size: AppFontSizes.fontMedium.sp, color: AppColors.grey),
+                child: Icon(Icons.share, size: 18.sp, color: AppColors.grey),
               ),
               const Spacer(),
               CommonButton(
                 text: AppTexts.editPackage,
                 onPressed: () {},
-                height: AppDimensions.paddingXLarge40.h,
+                height: 30.h,
                 backgroundColor: AppColors.whiteColor,
                 borderColor: AppColors.grey300,
                 textColor: AppColors.black,
@@ -263,7 +263,7 @@ class CreatePackageCardWidget extends GetView<HomeController> {
                     onPressed: () {
                       controller.incrementPackage(index);
                     },
-                    height: AppDimensions.paddingXLarge40.h,
+                    height: 30.h,
                     backgroundColor: AppColors.themeColor,
                     textColor: AppColors.whiteColor,
                     fontSize: AppFontSizes.fontSmall,
@@ -272,12 +272,12 @@ class CreatePackageCardWidget extends GetView<HomeController> {
                 }
 
                 return Container(
-                  height: AppDimensions.paddingXLarge40.h,
-                  padding: EdgeInsets.symmetric(horizontal: AppDimensions.spacingSmall.w),
+                  height: 30.h,
+                  padding: EdgeInsets.symmetric(horizontal: 8.w),
                   decoration: BoxDecoration(
                     color: AppColors.lightPink,
                     border: Border.all(color: AppColors.themeColor),
-                    borderRadius: BorderRadius.circular(AppDimensions.radiusSmall.r),
+                    borderRadius: BorderRadius.circular(8.r),
                   ),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
@@ -288,13 +288,13 @@ class CreatePackageCardWidget extends GetView<HomeController> {
                         },
                         child: Icon(
                           Icons.remove,
-                          size: AppFontSizes.fontMedium.sp,
+                          size: 18.sp,
                           color: AppColors.themeColor,
                         ),
                       ),
 
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingSmall.w),
+                        padding: EdgeInsets.symmetric(horizontal: 12.w),
                         child: CommonText(
                           text: count.toString(),
                           fontSize: AppFontSizes.fontMedium,
@@ -308,7 +308,7 @@ class CreatePackageCardWidget extends GetView<HomeController> {
                         },
                         child: Icon(
                           Icons.add,
-                          size: AppFontSizes.fontMedium.sp,
+                          size: 18.sp,
                           color: AppColors.themeColor,
                         ),
                       ),

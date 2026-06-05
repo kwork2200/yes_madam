@@ -22,7 +22,7 @@ class HomeReferBeauticianBanner extends StatelessWidget {
       ),
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
-        color: AppColors.creamBackground,
+        color: const Color(0xFFFFF3F8),
         borderRadius: BorderRadius.circular(AppDimensions.radiusMedium.r),
       ),
       child: Stack(
@@ -34,7 +34,7 @@ class HomeReferBeauticianBanner extends StatelessWidget {
             height: 52.h,
             child: Container(
               decoration: BoxDecoration(
-                color: AppColors.themeColor,
+                color: const Color(0xFFA7194B),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(AppDimensions.radiusSmall.r),
                   topRight: Radius.circular(AppDimensions.radiusXLarge.r),

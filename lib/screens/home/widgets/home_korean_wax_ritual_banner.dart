@@ -23,7 +23,7 @@ class HomeKoreanWaxRitualBanner extends StatelessWidget {
       ),
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
-        color: AppColors.gold,
+        color: const Color(0xFFF1B678),
         borderRadius: BorderRadius.circular(AppDimensions.radiusLarge.r),
       ),
       child: Stack(
@@ -32,7 +32,7 @@ class HomeKoreanWaxRitualBanner extends StatelessWidget {
             child: Image.network(
               'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=900',
               fit: BoxFit.cover,
-              color: AppColors.gold.withValues(alpha: 0.76),
+              color: const Color(0xFFF1B678).withValues(alpha: 0.76),
               colorBlendMode: BlendMode.srcATop,
             ),
           ),
@@ -40,9 +40,9 @@ class HomeKoreanWaxRitualBanner extends StatelessWidget {
             top: 0,
             left: 0,
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingXMedium.w, vertical: AppDimensions.spacingSmall.h),
+              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 5.h),
               decoration: BoxDecoration(
-                color: AppColors.themeColor,
+                color: Color(0xFFa95d22),
                 borderRadius: BorderRadius.only(
                   bottomRight: Radius.circular(AppDimensions.radiusLarge.r),
                 ),
@@ -73,7 +73,7 @@ class HomeKoreanWaxRitualBanner extends StatelessWidget {
                   text: AppTexts.koreanWaxSubtitle,
                   fontSize: AppFontSizes.fontNenoSmall,
                   fontWeight: AppFontWeights.bold,
-                  color: AppColors.themeColor,
+                  color: Color(0xFFa95d22),
                 ),
                 CommonText(
                   text: AppTexts.koreanWaxPrice,
@@ -88,7 +88,7 @@ class HomeKoreanWaxRitualBanner extends StatelessWidget {
                     vertical: 5.h,
                   ),
                   decoration: BoxDecoration(
-                    color: AppColors.themeColor,
+                    color: Color(0xFFa95d22),
                     borderRadius: BorderRadius.circular(
                       AppDimensions.radiusSmall.r -2.r,
                     ),

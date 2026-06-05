@@ -17,25 +17,28 @@ import 'package:yes_madam/widgets/yes_madam_logo.dart';
 class EliteMembershipScreen extends GetView<EliteMembershipController> {
   const EliteMembershipScreen({super.key});
 
+  static const Color _darkBg = Color(0xFF1A1A1A);
+  static const Color _cardBg = Color(0xFF2A2A2A);
+  static const Color _gold = Color(0xFFE6A020);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.eliteBg,
+      backgroundColor: _darkBg,
       body: Stack(
         children: [
           CustomScrollView(
             slivers: [
               SliverAppBar(
-                backgroundColor: AppColors.eliteBg,
+                backgroundColor: _darkBg,
                 elevation: 0,
                 pinned: false,
                 leading: GestureDetector(
                   onTap: () => Get.back(),
                   child: Container(
-                    margin: EdgeInsets.all(AppDimensions.paddingMedium.r),
+                    margin: EdgeInsets.all(14.r),
                     decoration: BoxDecoration(
-                      color: AppColors.white54,
+                      color: Colors.white24,
                       shape: BoxShape.circle,
                     ),
                     child: Icon(
@@ -48,7 +51,7 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
               ),
               SliverToBoxAdapter(
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingXMedium.w),
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -70,7 +73,7 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
                             TextSpan(
                               text: '₹1000 ',
                               style: TextStyle(
-                                color: AppColors.gold.withOpacity(0.7),
+                                color: _gold.withOpacity(0.7),
                                 fontSize: AppFontSizes.fontMedium,
                                 fontWeight: AppFontWeights.bold,
                               ),
@@ -91,7 +94,7 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
                         text: 'for 6 months',
                         fontSize: AppFontSizes.fontSmall,
                         fontWeight: AppFontWeights.normal,
-                        color: AppColors.black54,
+                        color: Colors.white60,
                         textAlign: TextAlign.center,
                       ),
                       Spacing.height(45),
@@ -137,14 +140,14 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
           text: AppTexts.elite,
           fontSize: AppFontSizes.fontXLarge36.sp,
           fontWeight: AppFontWeights.extraBold,
-          color: AppColors.gold,
+          color: _gold,
           textAlign: TextAlign.center,
         ),
         CommonText(
           text: AppTexts.membership,
           fontSize: AppFontSizes.fontXMedium,
           fontWeight: AppFontWeights.normal ,
-          color: AppColors.gold,
+          color: _gold,
           textAlign: TextAlign.center,
         ),
       ],
@@ -161,9 +164,9 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                AppColors.gold.withOpacity(0.0),
-                AppColors.gold.withOpacity(0.6),
-                AppColors.gold,
+                _gold.withOpacity(0.0),
+                _gold.withOpacity(0.6),
+                _gold,
               ],
               begin: Alignment.centerRight,
               end: Alignment.centerLeft,
@@ -171,19 +174,19 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingSmall.w),
+          padding: EdgeInsets.symmetric(horizontal: 10.w),
           child: Row(
             children: [
-              Icon(Icons.auto_awesome, size: AppDimensions.iconSmall.r, color: AppColors.gold),
+              Icon(Icons.auto_awesome, size: 14.r, color: _gold),
               Spacing.width(6),
               CommonText(
                 text: title,
                 fontSize: AppFontSizes.fontXMedium,
                 fontWeight: AppFontWeights.bold,
-                color: AppColors.gold,
+                color: _gold,
               ),
               Spacing.width(6),
-              Icon(Icons.auto_awesome, size: AppDimensions.iconSmall.r, color: AppColors.gold),
+              Icon(Icons.auto_awesome, size: 14.r, color: _gold),
             ],
           ),
         ),
@@ -194,9 +197,9 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                AppColors.gold,
-                AppColors.gold.withOpacity(0.6),
-                AppColors.gold.withOpacity(0.0),
+                _gold,
+                _gold.withOpacity(0.6),
+                _gold.withOpacity(0.0),
               ],
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
@@ -209,18 +212,18 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
 
   Widget _buildDiscountCard() {
     return Container(
-      padding: EdgeInsets.all(AppDimensions.paddingMedium.w),
+      padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
-        color: AppColors.darkColor,
+        color: _cardBg,
         boxShadow: [
           BoxShadow(
-            color: AppColors.gold.withOpacity(0.25),
+            color: const Color(0xFFD1B98D).withOpacity(0.25),
             offset: const Offset(-4, 0),
             blurRadius: 12,
             spreadRadius: 0,
           ),
           BoxShadow(
-            color: AppColors.gold.withOpacity(0.25),
+            color: const Color(0xFFD1B98D).withOpacity(0.25),
             offset: const Offset(4, 0),
             blurRadius: 12,
             spreadRadius: 0,
@@ -268,17 +271,17 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
       clipBehavior: Clip.none,
       children: [
         Container(
-          padding: EdgeInsets.fromLTRB(AppDimensions.paddingSmall.w, AppDimensions.paddingLarge.h, AppDimensions.paddingSmall.w, AppDimensions.paddingSmall.h),
+          padding: EdgeInsets.fromLTRB(12.w, 18.h, 12.w, 10.h),
           decoration: BoxDecoration(
             gradient:  LinearGradient(
               colors: [
-                AppColors.darkColor,
+                Color(0xFF3A3A2A),
                 AppColors.blackColor,
               ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
-            borderRadius: BorderRadius.circular(AppDimensions.radiusMedium.r),
+            borderRadius: BorderRadius.circular(10.r),
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(0.25),
@@ -294,19 +297,19 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
           ),
           child: Column(
             children: [
-              SizedBox(height: AppDimensions.paddingSmall.h),
+              SizedBox(height: 10.h),
               CommonText(
                 text: amount,
                 fontSize: AppFontSizes.fontLarge,
                 fontWeight: AppFontWeights.medium,
-                color: AppColors.gold,
+                color: _gold,
               ),
               Spacing.height(4),
               CommonText(
                 text: label,
                 fontSize: AppFontSizes.fontNenoSmall,
                 fontWeight: AppFontWeights.normal,
-                color: AppColors.black54,
+                color: Colors.white70,
                 textAlign: TextAlign.center,
               ),
             ],
@@ -319,15 +322,15 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
           child: Center(
             child: Container(
               padding: EdgeInsets.symmetric(
-                horizontal: AppDimensions.paddingSmall.w,
-                vertical: AppDimensions.spacingSmall.h,
+                horizontal: 10.w,
+                vertical: 2.h,
               ),
               decoration: BoxDecoration(
-                color: AppColors.gold,
-                borderRadius: BorderRadius.circular(AppDimensions.radiusCircle.r),
+                color: const Color(0xFFD1B98D),
+                borderRadius: BorderRadius.circular(20.r),
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.black.withOpacity(0.15),
+                    color: Colors.black.withOpacity(0.15),
                     blurRadius: 6,
                   )
                 ],
@@ -336,7 +339,7 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
                 text: "UPTO",
                 fontSize: AppFontSizes.fontNenoSmall,
                 fontWeight: AppFontWeights.semiBold,
-                color: AppColors.blackColor,
+                color: Colors.black,
               ),
             ),
           ),
@@ -346,18 +349,18 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
   }
   Widget _buildYMCoinsCard() {
     return Container(
-      padding: EdgeInsets.all(AppDimensions.paddingMedium.w),
+      padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
-        color: AppColors.darkColor,
+        color: _cardBg,
         boxShadow: [
           BoxShadow(
-            color: AppColors.gold.withOpacity(0.25),
+            color: const Color(0xFFD1B98D).withOpacity(0.25),
             offset: const Offset(-4, 0),
             blurRadius: 12,
             spreadRadius: 0,
           ),
           BoxShadow(
-            color: AppColors.gold.withOpacity(0.25),
+            color: const Color(0xFFD1B98D).withOpacity(0.25),
             offset: const Offset(4, 0),
             blurRadius: 12,
             spreadRadius: 0,
@@ -373,8 +376,8 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
               Container(
                 width: 36.w,
                 height: 36.w,
-                decoration: BoxDecoration(color: AppColors.gold, shape: BoxShape.circle),
-                child: Icon(Icons.bolt, color: AppColors.whiteColor, size: AppDimensions.iconMedium.r),
+                decoration: BoxDecoration(color: _gold, shape: BoxShape.circle),
+                child: Icon(Icons.bolt, color: Colors.white, size: 20.r),
               ),
               Spacing.width(12),
               RichText(
@@ -391,7 +394,7 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
                     TextSpan(
                       text: '1000 ',
                       style: TextStyle(
-                        color: AppColors.gold,
+                        color: _gold,
                         fontSize: AppFontSizes.fontXMedium,
                         fontWeight: AppFontWeights.bold,
                       ),
@@ -399,7 +402,7 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
                     TextSpan(
                       text: 'YMCOINS',
                       style: TextStyle(
-                        color: AppColors.whiteColor,
+                        color: Colors.white,
                         fontSize: AppFontSizes.fontXMedium,
                         fontWeight: AppFontWeights.bold,
                       ),
@@ -409,7 +412,7 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
               ),
             ],
           ),
-          Spacing.height(AppDimensions.paddingSmall.h),
+          Spacing.height(12),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -419,26 +422,26 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
                       'One-time credit after membership\npurchase to avail 10% discount',
                   fontSize: AppFontSizes.fontSmall,
                   fontWeight: AppFontWeights.normal,
-                  color: AppColors.black54,
+                  color: Colors.white70,
                   softWrap: true,
                 ),
               ),
               Spacing.width(8),
               Container(
-                padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingSmall.w, vertical: AppDimensions.spacingSmall.h),
+                padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
                 decoration: BoxDecoration(
-                  color: AppColors.darkColor,
-                  borderRadius: BorderRadius.circular(AppDimensions.radiusCircle.r),
+                  color: const Color(0xFF3A3020),
+                  borderRadius: BorderRadius.circular(20.r),
                 ),
                 child: Row(
                   children: [
-                    Icon(Icons.bolt, color: AppColors.gold, size: AppDimensions.iconSmall.r),
+                    Icon(Icons.bolt, color: _gold, size: 14.r),
                     Spacing.width(4),
                     CommonText(
                       text: '1 = ₹1',
                       fontSize: AppFontSizes.fontSmall,
                       fontWeight: AppFontWeights.bold,
-                      color: AppColors.whiteColor,
+                      color: Colors.white,
                     ),
                   ],
                 ),
@@ -471,13 +474,13 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
                   width: 44.w,
                   height: 44.w,
                   decoration: BoxDecoration(
-                    color: AppColors.darkColor,
+                    color: _cardBg,
                     shape: BoxShape.circle,
                   ),
                   child: Icon(
                     entry.value['icon'] as IconData,
-                    color: AppColors.gold,
-                    size: AppDimensions.iconLarge.r,
+                    color: _gold,
+                    size: 22.r,
                   ),
                 ),
                 Spacing.width(16),
@@ -485,22 +488,22 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
                   text: entry.value['text'] as String,
                   fontSize: AppFontSizes.fontMedium,
                   fontWeight: AppFontWeights.normal,
-                  color: AppColors.whiteColor,
+                  color: Colors.white,
                 ),
               ],
             ),
             if (!isLast) ...[
-              Spacing.height(AppDimensions.paddingSmall.h),
-               DottedLine(
+              Spacing.height(10),
+              const DottedLine(
                 direction: Axis.horizontal,
                 lineLength: double.infinity,
-                lineThickness: AppDimensions.spacingSmall.h,
-                dashLength: AppDimensions.spacingSmall.w,
-                dashColor: AppColors.black54,
+                lineThickness: 1.0,
+                dashLength: 4.0,
+                dashColor: Colors.white12,
                 dashGapLength: 3.0,
                 dashGapColor: Colors.transparent,
               ),
-              Spacing.height(AppDimensions.paddingSmall.h),
+              Spacing.height(10),
             ],
           ],
         );
@@ -513,7 +516,7 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
       width: double.infinity,
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
       decoration: BoxDecoration(
-        color: AppColors.creamBackground,
+        color: const Color(0xFFFFF3E0),
         borderRadius: BorderRadius.circular(AppDimensions.radiusMedium.r),
       ),
       child: RichText(
@@ -522,7 +525,7 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
             TextSpan(
               text: '1,076,530+ ',
               style: TextStyle(
-                color: AppColors.gold,
+                color: _gold,
                 fontSize: AppFontSizes.fontXMedium,
                 fontWeight: AppFontWeights.semiBold,
               ),
@@ -530,7 +533,7 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
             TextSpan(
               text: 'members are already using Elite',
               style: TextStyle(
-                color: AppColors.blackColor,
+                color: Colors.black87,
                 fontSize: AppFontSizes.fontXMedium,
                 fontWeight: AppFontWeights.bold,
               ),
@@ -546,7 +549,7 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
       final visibleFaqs = controller.faqs.take(5).toList();
       return Container(
         decoration: BoxDecoration(
-          color: AppColors.darkColor,
+          color: _cardBg,
           borderRadius: BorderRadius.circular(AppDimensions.radiusLarge.r),
         ),
         child: Column(
@@ -556,7 +559,7 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
               physics: const NeverScrollableScrollPhysics(),
               itemCount: visibleFaqs.length,
               separatorBuilder: (_, __) =>
-                  Divider(height: AppDimensions.spacingSmall.h, color: AppColors.black54),
+                  Divider(height: 1, color: Colors.white12),
               itemBuilder: (_, index) {
                 final faq = visibleFaqs[index];
                 return GestureDetector(
@@ -564,8 +567,8 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
                   behavior: HitTestBehavior.opaque,
                   child: Padding(
                     padding: EdgeInsets.symmetric(
-                      horizontal: AppDimensions.paddingMedium.w,
-                      vertical: AppDimensions.paddingSmall.h,
+                      horizontal: 16.w,
+                      vertical: 14.h,
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -578,7 +581,7 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
                                 text: faq['question'],
                                 fontSize: AppFontSizes.fontMedium,
                                 fontWeight: AppFontWeights.normal,
-                                color: AppColors.whiteColor,
+                                color: Colors.white,
                                 softWrap: true,
                                 maxLines: 3,
                                 overflow: TextOverflow.ellipsis,
@@ -589,8 +592,8 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
                               faq['isExpanded']
                                   ? Icons.keyboard_arrow_up
                                   : Icons.keyboard_arrow_down,
-                              color: AppColors.whiteColor,
-                              size: AppDimensions.iconMedium.r,
+                              color: Colors.white,
+                              size: 20.r,
                             ),
                           ],
                         ),
@@ -600,7 +603,7 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
                             text: faq['answer'],
                             fontSize: AppFontSizes.fontSmall,
                             fontWeight: AppFontWeights.normal,
-                            color: AppColors.black54,
+                            color: Colors.white60,
                             softWrap: true,
                           ),
                         ],
@@ -613,7 +616,7 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
             GestureDetector(
               onTap: controller.navigateToFaqs,
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingMedium.w, vertical: AppDimensions.paddingSmall.h),
+                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -621,10 +624,10 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
                       text: 'View all questions',
                       fontSize: AppFontSizes.fontSmall,
                       fontWeight: AppFontWeights.medium,
-                      color: AppColors.gold,
+                      color: _gold,
                     ),
                     Spacing.width(4),
-                    Icon(Icons.arrow_forward_ios, size: AppFontSizes.fontNenoSmall.r, color: AppColors.gold),
+                    Icon(Icons.arrow_forward_ios, size: 12.r, color: _gold),
                   ],
                 ),
               ),
@@ -652,7 +655,7 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
     ];
 
     return SizedBox(
-      height: AppDimensions.paddingXLarge60 * 3.h,
+      height: 200.h,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: testimonials.length,
@@ -660,10 +663,10 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
           final t = testimonials[index];
           return Container(
             width: 280.w,
-            margin: EdgeInsets.only(right: AppDimensions.paddingSmall.w),
-            padding: EdgeInsets.all(AppDimensions.paddingMedium.w),
+            margin: EdgeInsets.only(right: 12.w),
+            padding: EdgeInsets.all(16.w),
             decoration: BoxDecoration(
-              color: AppColors.darkColor,
+              color: _cardBg,
               border: Border.all(color: AppColors.whiteColor.withOpacity(0.3)),
               borderRadius: BorderRadius.circular(AppDimensions.radiusMedium.r),
             ),
@@ -674,27 +677,27 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
                   text: t['text']!,
                   fontSize: AppFontSizes.fontSmall,
                   fontWeight: AppFontWeights.normal,
-                  color: AppColors.whiteColor,
+                  color: Colors.white,
                   softWrap: true,
                 ),
                 const Spacer(),
-                Divider(color: AppColors.black54, height: AppDimensions.spacingSmall.h),
+                Divider(color: Colors.white24, height: 1),
                 Spacing.height(8),
                 CommonText(
                   text: t['name']!,
                   fontSize: AppFontSizes.fontSmall,
                   fontWeight: AppFontWeights.medium,
-                  color: AppColors.whiteColor,
+                  color: Colors.white,
                 ),
                 Spacing.height(6),
                 Container(
                   padding: EdgeInsets.symmetric(
-                    horizontal: AppDimensions.paddingSmall.w,
-                    vertical: AppDimensions.spacingSmall.h,
+                    horizontal: 10.w,
+                    vertical: 4.h,
                   ),
                   decoration: BoxDecoration(
-                    color: AppColors.grey300,
-                    borderRadius: BorderRadius.circular(AppDimensions.radiusCircle.r),
+                    color: Colors.grey.shade700,
+                    borderRadius: BorderRadius.circular(20.r),
                   ),
                   child: RichText(
                     text: TextSpan(
@@ -702,14 +705,14 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
                         TextSpan(
                           text: 'Saved ',
                           style: TextStyle(
-                            color: AppColors.whiteColor,
+                            color: Colors.white,
                             fontSize: AppFontSizes.fontSmall,
                           ),
                         ),
                         TextSpan(
                           text: t['saved'],
                           style: TextStyle(
-                            color: AppColors.gold,
+                            color: _gold,
                             fontSize: AppFontSizes.fontSmall,
                             fontWeight: AppFontWeights.bold,
                           ),
@@ -717,7 +720,7 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
                         TextSpan(
                           text: ' so far!',
                           style: TextStyle(
-                            color: AppColors.whiteColor,
+                            color: Colors.white,
                             fontSize: AppFontSizes.fontSmall,
                           ),
                         ),
@@ -739,9 +742,9 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
         Get.toNamed(AppRoutes.termsConditions);
       },
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingMedium.w, vertical: AppDimensions.paddingSmall.h),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
         decoration: BoxDecoration(
-          color: AppColors.darkColor,
+          color: _cardBg,
           borderRadius: BorderRadius.circular(AppDimensions.radiusMedium.r),
         ),
         child: Row(
@@ -751,9 +754,9 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
               text: 'Terms and Conditions',
               fontSize: AppFontSizes.fontMedium,
               fontWeight: AppFontWeights.semiBold,
-              color: AppColors.whiteColor,
+              color: Colors.white,
             ),
-            Icon(Icons.arrow_forward_ios, size: AppFontSizes.fontMedium.r, color: AppColors.whiteColor),
+            Icon(Icons.arrow_forward_ios, size: 16.r, color: Colors.white),
           ],
         ),
       ),
@@ -762,27 +765,27 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
 
   Widget _buildBuyButton() {
     return Container(
-      color: AppColors.eliteBg,
+      color: AppColors.blackColor,
       child: GestureDetector(
         onTap: () => ElitePaymentBottomSheet.show(),
         child: Padding(
-          padding: EdgeInsets.all(AppDimensions.paddingLarge.r),
+          padding:  EdgeInsets.all(18.0.r),
           child: Container(
-            height: AppDimensions.paddingXLarge60.h,
+            height: 56.h,
             decoration: BoxDecoration(
               gradient: const LinearGradient(
                 colors: [
-                  AppColors.themeColor,
-                  AppColors.themeColor,
-                  AppColors.themeColor,
-                  AppColors.themeColor,
-                  AppColors.themeColor,
-                  AppColors.accentColor
+                  Color(0xFF5f0a2a),
+                  Color(0xFF5f0a2a),
+                  Color(0xFF5f0a2a),
+                  Color(0xFF5f0a2a),
+                  Color(0xFF5f0a2a),
+                  Color(0xFFaf7379)
                 ],
                 begin: Alignment.topRight,
                 end: Alignment.bottomLeft,
               ),
-              borderRadius: BorderRadius.circular(AppDimensions.radiusMedium.r),
+              borderRadius: BorderRadius.circular(12.r),
             ),
             child: Stack(
               children: [
@@ -791,12 +794,12 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
                   top: 0,
                   bottom: 0,
                   child: Container(
-                    width: AppDimensions.paddingXLarge40.w,
+                    width: 52.w,
                     decoration: BoxDecoration(
-                      color: AppColors.gold,
+                      color: _gold,
                       borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(AppDimensions.radiusMedium.r),
-                        bottomLeft: Radius.circular(AppDimensions.radiusMedium.r),
+                        topLeft: Radius.circular(12.r),
+                        bottomLeft: Radius.circular(12.r),
                       ),
                     ),
                     child: Column(
@@ -806,14 +809,14 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
                           text: '41%',
                           fontSize: AppFontSizes.fontSmall,
                           fontWeight: AppFontWeights.bold,
-                          color: AppColors.whiteColor,
+                          color: Colors.white,
                           textAlign: TextAlign.center,
                         ),
                         CommonText(
                           text: 'Off',
                           fontSize: AppFontSizes.fontNenoSmall,
                           fontWeight: AppFontWeights.medium,
-                          color: AppColors.whiteColor,
+                          color: Colors.white,
                           textAlign: TextAlign.center,
                         ),
                       ],
@@ -831,7 +834,7 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
                             TextSpan(
                               text: 'Buy Elite at ₹249  ',
                               style: TextStyle(
-                                color: AppColors.whiteColor,
+                                color: Colors.white,
                                 fontSize: AppFontSizes.fontMedium,
                                 fontWeight: AppFontWeights.bold,
                               ),
@@ -839,7 +842,7 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
                             TextSpan(
                               text: '₹499',
                               style: TextStyle(
-                                color: AppColors.black54,
+                                color: Colors.white60,
                                 fontSize: AppFontSizes.fontSmall,
                                 decoration: TextDecoration.lineThrough,
                               ),
@@ -851,7 +854,7 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
                         text: 'for 6 months',
                         fontSize: AppFontSizes.fontNenoSmall,
                         fontWeight: AppFontWeights.normal,
-                        color: AppColors.black54,
+                        color: Colors.white70,
                         textAlign: TextAlign.center,
                       ),
                     ],

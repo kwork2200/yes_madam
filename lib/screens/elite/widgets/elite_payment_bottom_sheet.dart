@@ -25,10 +25,10 @@ class ElitePaymentBottomSheet extends GetView<EliteMembershipController> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.creamBackground,
+        color: const Color(0xFFFFF8F0),
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(AppDimensions.radiusXLarge.r),
-          topRight: Radius.circular(AppDimensions.radiusXLarge.r),
+          topLeft: Radius.circular(24.r),
+          topRight: Radius.circular(24.r),
         ),
       ),
       padding: EdgeInsets.only(
@@ -36,7 +36,7 @@ class ElitePaymentBottomSheet extends GetView<EliteMembershipController> {
       ),
       child: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingXMedium.w, vertical: AppDimensions.paddingSmall.h),
+          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -46,13 +46,13 @@ class ElitePaymentBottomSheet extends GetView<EliteMembershipController> {
                   GestureDetector(
                     onTap: () => Get.back(),
                     child: Container(
-                      width: AppDimensions.iconLarge.w,
-                      height: AppDimensions.iconLarge.w,
+                      width: 32.w,
+                      height: 32.w,
                       decoration: const BoxDecoration(
-                        color: AppColors.whiteColor,
+                        color: Colors.white,
                         shape: BoxShape.circle,
                       ),
-                      child: Icon(Icons.close, size: AppDimensions.iconMedium.r, color: AppColors.blackColor),
+                      child: Icon(Icons.close, size: 18.r, color: Colors.black),
                     ),
                   ),
                 ],
@@ -61,14 +61,14 @@ class ElitePaymentBottomSheet extends GetView<EliteMembershipController> {
                 text: 'Elite',
                 fontSize: AppFontSizes.fontXLarge36,
                 fontWeight: AppFontWeights.extraBold,
-                color: AppColors.gold,
+                color: const Color(0xFFE6A020),
                 textAlign: TextAlign.center,
               ),
               CommonText(
                 text: 'Membership',
                 fontSize: AppFontSizes.fontXMedium,
                 fontWeight: AppFontWeights.black,
-                color: AppColors.gold,
+                color: const Color(0xFFE6A020),
                 textAlign: TextAlign.center,
               ),
               Spacing.height(4),
@@ -79,7 +79,7 @@ class ElitePaymentBottomSheet extends GetView<EliteMembershipController> {
                     TextSpan(
                       text: '1,076,530+ ',
                       style: TextStyle(
-                        color: AppColors.gold,
+                        color: const Color(0xFFE6A020),
                         fontSize: AppFontSizes.fontMedium,
                         fontWeight: AppFontWeights.bold,
                       ),
@@ -87,7 +87,7 @@ class ElitePaymentBottomSheet extends GetView<EliteMembershipController> {
                     TextSpan(
                       text: 'members are already using Elite!',
                       style: TextStyle(
-                        color: AppColors.blackColor,
+                        color: Colors.black87,
                         fontSize: AppFontSizes.fontMedium,
                         fontWeight: AppFontWeights.semiBold,
                       ),
@@ -95,14 +95,14 @@ class ElitePaymentBottomSheet extends GetView<EliteMembershipController> {
                   ],
                 ),
               ),
-              Spacing.height(AppDimensions.paddingMedium.h),
+              Spacing.height(16),
               Container(
                 width: double.infinity,
-                padding: EdgeInsets.all(AppDimensions.paddingMedium.w),
+                padding: EdgeInsets.all(16.w),
                 decoration: BoxDecoration(
                   color: Colors.transparent,
                   borderRadius: BorderRadius.circular(AppDimensions.radiusMedium.r),
-                  border: Border.all(color: AppColors.gold, width: AppDimensions.spacingSmall.w),
+                  border: Border.all(color: const Color(0xFFE6A020), width: 1.w),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -113,31 +113,31 @@ class ElitePaymentBottomSheet extends GetView<EliteMembershipController> {
                         children: List.generate(
                           3,
                               (_) => Padding(
-                            padding: EdgeInsets.symmetric(horizontal: AppDimensions.spacingSmall.w),
+                            padding: EdgeInsets.symmetric(horizontal: 4.w),
                             child: Icon(
                               Icons.diamond,
-                              size: AppDimensions.spacingSmall.r,
-                              color: AppColors.gold,
+                              size: 12.r,
+                              color: const Color(0xFFE6A020),
                             ),
                           ),
                         ),
                       ),
                     ),
-                    Spacing.height(AppDimensions.paddingSmall.h),
+                    Spacing.height(12),
                     _buildPerkRow('Enjoy 10% OFF on all bookings'),
-                    Spacing.height(AppDimensions.spacingSmall.h),
+                    Spacing.height(8),
                     _buildPerkRow('Get 🪙 1000 YMCOINS'),
                   ],
                 ),
               ),
-              Spacing.height(AppDimensions.paddingXMedium.h),
+              Spacing.height(20),
               Align(
                 alignment: Alignment.centerLeft,
                 child: CommonText(
                   text: 'Have a coupon code?',
                   fontSize: AppFontSizes.fontMedium,
                   fontWeight: AppFontWeights.semiBold,
-                  color: AppColors.blackColor,
+                  color: Colors.black87,
                 ),
               ),
               Spacing.height(8),
@@ -163,7 +163,7 @@ class ElitePaymentBottomSheet extends GetView<EliteMembershipController> {
                   Spacing.width(8),
                 ],
               ),
-              Spacing.height(AppDimensions.paddingMedium.h),
+              Spacing.height(16),
               Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -186,7 +186,7 @@ class ElitePaymentBottomSheet extends GetView<EliteMembershipController> {
                                 text: 'Total Amount',
                                 fontSize: AppFontSizes.fontMedium,
                                 fontWeight: AppFontWeights.semiBold,
-                                color: AppColors.blackColor,
+                                color: Colors.black87,
                               ),
                               CommonText(
                                 text: 'Incl. of taxes',
@@ -200,7 +200,7 @@ class ElitePaymentBottomSheet extends GetView<EliteMembershipController> {
                             text: '₹${controller.totalAmount.toInt()}',
                             fontSize: AppFontSizes.fontXMedium,
                             fontWeight: AppFontWeights.bold,
-                            color: AppColors.blackColor,
+                            color: Colors.black87,
                           ),
                         ],
                       ),
@@ -217,7 +217,7 @@ class ElitePaymentBottomSheet extends GetView<EliteMembershipController> {
                           text: 'Limited time offer, only for you!',
                           fontSize: AppFontSizes.fontSmall,
                           fontWeight: AppFontWeights.medium,
-                          color: AppColors.blackColor,
+                          color: Colors.black87,
                         ),
                       ),
                     ),
@@ -225,7 +225,7 @@ class ElitePaymentBottomSheet extends GetView<EliteMembershipController> {
                 ),
               ),
 
-              Spacing.height(AppDimensions.paddingXMedium.h),
+              Spacing.height(20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -248,7 +248,7 @@ class ElitePaymentBottomSheet extends GetView<EliteMembershipController> {
                                 text: 'PayU',
                                 fontSize: AppFontSizes.fontSmall,
                                 fontWeight: AppFontWeights.bold,
-                                color: AppColors.blackColor,
+                                color: Colors.black87,
                               ),
                             ),
                             Spacing.width(6),
@@ -256,12 +256,12 @@ class ElitePaymentBottomSheet extends GetView<EliteMembershipController> {
                               text: 'PAY USING',
                               fontSize: AppFontSizes.fontSmall,
                               fontWeight: AppFontWeights.medium,
-                              color: AppColors.blackColor,
+                              color: Colors.black87,
                             ),
                             Icon(
                               Icons.keyboard_arrow_down,
                               size: 18.r,
-                              color: AppColors.blackColor,
+                              color: Colors.black87,
                             ),
                           ],
                         ),
@@ -271,7 +271,7 @@ class ElitePaymentBottomSheet extends GetView<EliteMembershipController> {
                         text: 'Pay Using UPI',
                         fontSize: AppFontSizes.fontSmall,
                         fontWeight: AppFontWeights.medium,
-                        color: AppColors.blackColor,
+                        color: Colors.black87,
                       ),
                     ],
                   ),
@@ -306,7 +306,7 @@ class ElitePaymentBottomSheet extends GetView<EliteMembershipController> {
                 ],
               ),
 
-              Spacing.height(AppDimensions.paddingMedium.h),
+              Spacing.height(16),
             ],
           ),
         ),
@@ -395,9 +395,9 @@ class ElitePaymentBottomSheet extends GetView<EliteMembershipController> {
                   ),
                 ],
               ),
-              Spacing.height(AppDimensions.paddingMedium.h),
+              Spacing.height(16),
               const Divider(color: Color(0xFFEEEEEE), height: 1),
-              Spacing.height(AppDimensions.paddingMedium.h),
+              Spacing.height(16),
               Row(
                 children: [
                   Container(
@@ -424,7 +424,7 @@ class ElitePaymentBottomSheet extends GetView<EliteMembershipController> {
                   ),
                 ],
               ),
-              Spacing.height(AppDimensions.paddingMedium.h),
+              Spacing.height(16),
             ],
           ),
         );

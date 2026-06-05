@@ -23,7 +23,7 @@ class HomeStriplessKoreanWaxBanner extends StatelessWidget {
       ),
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
-        color: AppColors.lightPink,
+        color: const Color(0xFFFFE4F4),
         borderRadius: BorderRadius.circular(AppDimensions.radiusLarge.r),
       ),
       child: Stack(
@@ -36,7 +36,7 @@ class HomeStriplessKoreanWaxBanner extends StatelessWidget {
             child: Image.network(
               'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=700',
               fit: BoxFit.cover,
-              color: AppColors.lightPink.withValues(alpha: 0.28),
+              color: const Color(0xFFFFE4F4).withValues(alpha: 0.28),
               colorBlendMode: BlendMode.lighten,
             ),
           ),
