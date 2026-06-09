@@ -2,7 +2,9 @@ import 'package:get/get.dart';
 import 'package:yes_madam/bindings/about_us/about_us_binding.dart';
 import 'package:yes_madam/bindings/account/account_binding.dart';
 import 'package:yes_madam/bindings/address/add_address_binding.dart';
+import 'package:yes_madam/bindings/bottom_nav/bottom_cart_widget.dart';
 import 'package:yes_madam/bindings/bottom_nav/bottom_nav_bar_binding.dart';
+import 'package:yes_madam/bindings/cart/cart_binding.dart';
 import 'package:yes_madam/bindings/contact_us/contact_us_binding.dart';
 import 'package:yes_madam/bindings/coupon/coupons_binding.dart';
 import 'package:yes_madam/bindings/elite/elite_membership_binding.dart';
@@ -110,17 +112,17 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.eliteMembership,
-      page: () => const EliteMembershipScreen(),
+      page: () => EliteMembershipScreen(),
       binding: EliteMembershipBinding(),
     ),
     GetPage(
       name: AppRoutes.eliteFaqs,
-      page: () => const EliteFaqsScreen(),
+      page: () => EliteFaqsScreen(),
       binding: EliteMembershipBinding(),
     ),
     GetPage(
       name: AppRoutes.addAddress,
-      page: () => const AddAddressScreen(),
+      page: () => AddAddressScreen(),
       binding: AddAddressBinding(),
     ),
     GetPage(
@@ -131,27 +133,32 @@ class AppPages {
     GetPage(
       name: AppRoutes.serviceListing,
       page: () => ServiceListingScreen(),
-      binding: StoreListingBinding(),
+      binding: ServiceListingBinding(),
     ),
     GetPage(
       name: AppRoutes.referEarn,
-      page: () => const ReferEarnScreen(),
+      page: () => ReferEarnScreen(),
       binding: ReferEarnBinding(),
     ),
     GetPage(
       name: AppRoutes.referEarnJourney,
-      page: () => const ReferEarnJourneyScreen(),
+      page: () => ReferEarnJourneyScreen(),
       binding: ReferEarnBinding(),
     ),
     GetPage(
       name: AppRoutes.referEarnCoins,
-      page: () => const ReferEarnCoinsScreen(),
+      page: () => ReferEarnCoinsScreen(),
       binding: ReferEarnBinding(),
     ),
     GetPage(
       name: AppRoutes.referEarnFaq,
-      page: () => const ReferEarnFaqScreen(),
+      page: () => ReferEarnFaqScreen(),
       binding: ReferEarnBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.cart,
+      page: () => BottomCartWidget(),
+      binding: CartBinding(),
     ),
   ];
 }

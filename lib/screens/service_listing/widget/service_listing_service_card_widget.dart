@@ -7,6 +7,7 @@ import 'package:yes_madam/utils/app_colors.dart';
 import 'package:yes_madam/utils/app_font_sizes.dart';
 import 'package:yes_madam/utils/app_font_weights.dart';
 import 'package:yes_madam/widgets/common/common_text.dart';
+import 'package:yes_madam/widgets/recent_bookings_badge.dart';
 
 class ServiceListingServiceCardWidget extends GetView<ServiceListingController> {
   final ServiceModel service;
@@ -38,17 +39,14 @@ class ServiceListingServiceCardWidget extends GetView<ServiceListingController> 
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Service image / banner
             _buildServiceImage(),
             Padding(
               padding: EdgeInsets.all(12.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Recent bookings badge
-                  if (service.recentBookings.isNotEmpty) _buildRecentBookingsBadge(),
+                  if (service.recentBookings.isNotEmpty) RecentBookingsBadge(text: service.recentBookings),
                   SizedBox(height: 6.h),
-                  // Title
                   CommonText(
                     text: service.name,
                     fontSize: AppFontSizes.fontXMedium,
@@ -56,7 +54,6 @@ class ServiceListingServiceCardWidget extends GetView<ServiceListingController> 
                     color: AppColors.blackColor,
                   ),
                   SizedBox(height: 2.h),
-                  // Subtitle
                   CommonText(
                     text: service.subtitle,
                     fontSize: AppFontSizes.fontSmall,
@@ -64,10 +61,8 @@ class ServiceListingServiceCardWidget extends GetView<ServiceListingController> 
                     color: AppColors.greyColor,
                   ),
                   SizedBox(height: 6.h),
-                  // Rating
                   _buildRatingRow(),
                   SizedBox(height: 8.h),
-                  // Duration + Price + Button
                   _buildPriceRow(context),
                 ],
               ),
@@ -92,37 +87,6 @@ class ServiceListingServiceCardWidget extends GetView<ServiceListingController> 
     );
   }
 
-  Widget _buildRecentBookingsBadge() {
-    return Row(
-      children: [
-        // Stacked avatar icons
-        SizedBox(
-          width: 40.w,
-          height: 18.h,
-          child: Stack(
-            children: List.generate(
-              3,
-                  (i) => Positioned(
-                left: (i * 10).toDouble(),
-                child: CircleAvatar(
-                  radius: 9.r,
-                  backgroundColor: Colors.orange.shade300,
-                  child: Icon(Icons.person, size: 10.sp, color: AppColors.whiteColor),
-                ),
-              ),
-            ),
-          ),
-        ),
-        SizedBox(width: 4.w),
-        CommonText(
-          text: service.recentBookings,
-          fontSize: AppFontSizes.fontNenoSmall,
-          fontWeight: AppFontWeights.medium,
-          color: AppColors.blackColor,
-        ),
-      ],
-    );
-  }
 
   Widget _buildRatingRow() {
     return Row(

@@ -31,10 +31,15 @@ class HomeBannerWidget extends GetView<HomeController> {
               controller.currentBannerIndex.value = index;
             },
             itemBuilder: (context, index) {
-              return Image.network(
-                controller.bannerImages[index],
-                fit: BoxFit.cover,
-                width: double.infinity,
+              return GestureDetector(
+                onTap: () {
+                  Get.toNamed(AppRoutes.serviceListing);
+                },
+                child: Image.network(
+                  controller.bannerImages[index],
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                ),
               );
             },
           ),

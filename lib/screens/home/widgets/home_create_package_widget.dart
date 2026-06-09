@@ -1,3 +1,4 @@
+import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -10,6 +11,7 @@ import 'package:yes_madam/utils/app_texts.dart';
 import 'package:yes_madam/widgets/common/common_text.dart';
 import 'package:yes_madam/widgets/components/spacing_widget.dart';
 import 'package:yes_madam/widgets/common/common_button.dart';
+import 'package:yes_madam/widgets/recent_bookings_badge.dart';
 
 class HomeCreatePackageWidget extends GetView<HomeController> {
   const HomeCreatePackageWidget({super.key});
@@ -186,6 +188,8 @@ class CreatePackageCardWidget extends GetView<HomeController> {
             ],
           ),
           Spacing.height(AppDimensions.spacingLarge),
+          RecentBookingsBadge(text: "${package['recentBookings']}"),
+          Spacing.height(AppDimensions.spacingLarge),
           ...packageItems.map((item) {
             final parts = item.split(':');
             return Padding(
@@ -231,7 +235,17 @@ class CreatePackageCardWidget extends GetView<HomeController> {
               ),
             );
           }),
-          const Spacer(),
+          Spacing.height(6),
+          DottedLine(
+            direction: Axis.horizontal,
+            lineLength: double.infinity,
+            lineThickness: 1.0,
+            dashLength: 4.0,
+            dashColor: AppColors.grey300,
+            dashGapLength: 3.0,
+            dashGapColor: Colors.transparent,
+          ),
+          SizedBox(height: 10.h),
           Row(
             children: [
               Container(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:yes_madam/bindings/bottom_nav/bottom_cart_widget.dart';
 import 'package:yes_madam/controller/service_listing/service_listing_controller.dart';
 import 'package:yes_madam/screens/home/widgets/home_create_package_widget.dart';
 import 'package:yes_madam/screens/service_listing/widget/service_listing_banner_widget.dart';
@@ -21,60 +22,70 @@ class ServiceListingScreen extends GetView<ServiceListingController> {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(56.h),
+        preferredSize: Size.fromHeight(200.h),
         child: const ServiceListingAppBarWidget(),
       ),
-      body: Column(
+      body: Stack(
         children: [
-           ServiceListingCategoryTabsWidget(),
-          Expanded(
-            child: Obx(() {
-              final isOfferSelected = controller.isOfferSelected;
-
-              return ListView(
-                padding: EdgeInsets.only(bottom: 80.h),
-                children: [
-                  if (!isOfferSelected) ...[
-                    const ServiceListingBannerWidget(),
-                    const ServiceListingFilterChipsWidget(),
-
-                    ...controller.services.map(
-                          (service) => ServiceListingServiceCardWidget(
-                        service: service,
-                      ),
-                    ),
-                  ] else ...[
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 12.w,
-                        vertical: 10.h,
-                      ),
-                      child: CommonText(
-                        text: "Create Package",
-                        fontSize: AppFontSizes.fontXMedium,
-                        fontWeight: AppFontWeights.semiBold,
-                        color: AppColors.black,
-                      ),
-                    ),
-
-                    ...List.generate(
-                      controller.packageList.length,
-                          (index) => Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 12.w,
-                          vertical: 8.h,
+          Column(
+            children: [
+               ServiceListingCategoryTabsWidget(),
+              Expanded(
+                child: Obx(() {
+                  final isOfferSelected = controller.isOfferSelected;
+                  return ListView(
+                    padding: EdgeInsets.only(bottom: 90.h),
+                    children: [
+                      if (!isOfferSelected) ...[
+                        const ServiceListingBannerWidget(),
+                        const ServiceListingFilterChipsWidget(),
+                        ...controller.services.map(
+                              (service) => ServiceListingServiceCardWidget(
+                            service: service,
+                          ),
                         ),
-                        child: CreatePackageCardWidget(
-                          package: controller.packageList[index],
-                          index: index,
+                      ] else ...[
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 12.w,
+                            vertical: 10.h,
+                          ),
+                          child: CommonText(
+                            text: "Create Package",
+                            fontSize: AppFontSizes.fontXMedium,
+                            fontWeight: AppFontWeights.semiBold,
+                            color: AppColors.black,
+                          ),
                         ),
-                      ),
-                    ),
-                  ],
-                ],
-              );
-            }),
+                        ...List.generate(
+                          controller.packageList.length,
+                              (index) => Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 12.w,
+                              vertical: 8.h,
+                            ),
+                            child: CreatePackageCardWidget(
+                              package: controller.packageList[index],
+                              index: index,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ],
+                  );
+                }),
+              ),
+            ],
           ),
+          Positioned(
+            bottom: 16.h,
+            left: 16.w,
+            right: 16.w,
+            child: GestureDetector(
+              onTap: () {},
+              child: BottomCartWidget(),
+            ),
+          )
         ],
       ),
     );

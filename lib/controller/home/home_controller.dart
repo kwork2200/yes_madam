@@ -321,6 +321,7 @@ class HomeController extends GetxController {
       "mrp": "₹6246",
       "discount": "49% OFF",
       "duration": "4 hrs 32 mins",
+      "recentBookings": '2K+ Bookings in Last 30 days',
       "images": [
         "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=500",
         "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=500",
@@ -342,6 +343,7 @@ class HomeController extends GetxController {
       "mrp": "₹4198",
       "discount": "47% OFF",
       "duration": "2 hrs 30 mins",
+      "recentBookings": '2K+ Bookings in Last 30 days',
       "images": [
         "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=500",
         "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500",
@@ -361,6 +363,7 @@ class HomeController extends GetxController {
       "mrp": "₹3448",
       "discount": "48% OFF",
       "duration": "2 hrs 45 mins",
+      "recentBookings": '2K+ Bookings in Last 30 days',
       "images": [
         "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=500",
         "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=500",
@@ -380,6 +383,7 @@ class HomeController extends GetxController {
       "mrp": "₹7999",
       "discount": "46% OFF",
       "duration": "5 hrs 15 mins",
+      "recentBookings": '2K+ Bookings in Last 30 days',
       "images": [
         "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500",
         "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=500",
