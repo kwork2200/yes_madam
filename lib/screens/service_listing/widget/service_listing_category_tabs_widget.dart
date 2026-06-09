@@ -60,7 +60,7 @@ class ServiceListingCategoryTabsWidget
       child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.only(right: 16.w), // 👈 only image section padding
+            padding: EdgeInsets.only(right: 16.w),
             child: Column(
               children: [
                 Container(
@@ -71,9 +71,9 @@ class ServiceListingCategoryTabsWidget
                         ? AppColors.themeColor.withOpacity(0.1)
                         : const Color(0xFFF5F5F5),
                     borderRadius: BorderRadius.circular(14.r),
-                    border: isSelected
-                        ? Border.all(color: AppColors.themeColor, width: 1.5)
-                        : null,
+                    // border: isSelected
+                    //     ? Border.all(color: AppColors.themeColor, width: 1.5)
+                    //     : null,
                     image: DecorationImage(
                       image: NetworkImage(_getCategoryIcon(index)),
                       fit: BoxFit.cover,

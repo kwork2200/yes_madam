@@ -5,7 +5,7 @@ import 'package:yes_madam/controller/account/account_controller.dart';
 import 'package:yes_madam/utils/app_font_sizes.dart';
 import 'package:yes_madam/utils/app_texts.dart';
 import 'package:yes_madam/widgets/common/common_text.dart';
-import '../../controller/bottom_nav_bar/bottom_nav_bar_controller.dart';
+import '../../controller/bottom_nav/bottom_nav_bar_controller.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/app_font_weights.dart';
 import '../home/home_screen.dart';

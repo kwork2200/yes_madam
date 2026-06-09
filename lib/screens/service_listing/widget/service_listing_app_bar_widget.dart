@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:yes_madam/routes/app_routes.dart';
 import 'package:yes_madam/utils/app_colors.dart';
 import 'package:yes_madam/utils/app_font_sizes.dart';
 import 'package:yes_madam/utils/app_font_weights.dart';
@@ -35,28 +36,20 @@ class ServiceListingAppBarWidget extends StatelessWidget {
       centerTitle: false,
       actions: [
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            Get.toNamed(AppRoutes.search);
+          },
           child: Container(
-            padding: EdgeInsets.symmetric(
-              horizontal: 10.w,
-              vertical: 6.h,
-            ),
+            padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
             decoration: BoxDecoration(
               color: Colors.transparent,
               borderRadius: BorderRadius.circular(25.r),
-              border: Border.all(
-                color: AppColors.grey200,
-                width: 1.w,
-              ),
+              border: Border.all(color: AppColors.grey200, width: 1.w),
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(
-                  Icons.search,
-                  size: 18.sp,
-                  color: AppColors.blackColor,
-                ),
+                Icon(Icons.search, size: 18.sp, color: AppColors.blackColor),
                 Spacing.width(4),
                 CommonText(
                   text: 'Search',
@@ -74,10 +67,7 @@ class ServiceListingAppBarWidget extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.transparent,
             shape: BoxShape.circle,
-            border: Border.all(
-              color: AppColors.grey200,
-              width: 1.w,
-            ),
+            border: Border.all(color: AppColors.grey200, width: 1.w),
           ),
           child: Icon(
             Icons.share_outlined,

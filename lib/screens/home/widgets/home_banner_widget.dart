@@ -104,48 +104,53 @@ class HomeBannerWidget extends GetView<HomeController> {
                         ),
                       ),
 
-                      Container(
-                        margin: EdgeInsets.only(
-                          right: AppDimensions.spacingSmall.w,
-                        ),
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 8.w,
-                          vertical: 6.h,
-                        ),
-                        decoration: BoxDecoration(
-                          color: AppColors.eliteBg,
-                          borderRadius: BorderRadius.circular(
-                            AppDimensions.radiusCircle.r,
+                      GestureDetector(
+                        onTap: () {
+                          Get.toNamed(AppRoutes.referEarn);
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(
+                            right: AppDimensions.spacingSmall.w,
                           ),
-                        ),
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.shield,
-                              color: AppColors.gold,
-                              size: 14.sp,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 8.w,
+                            vertical: 6.h,
+                          ),
+                          decoration: BoxDecoration(
+                            color: AppColors.eliteBg,
+                            borderRadius: BorderRadius.circular(
+                              AppDimensions.radiusCircle.r,
                             ),
+                          ),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.shield,
+                                color: AppColors.gold,
+                                size: 14.sp,
+                              ),
 
-                            Spacing.width(AppDimensions.spacingSmall),
+                              Spacing.width(AppDimensions.spacingSmall),
 
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                CommonText(
-                                  text: AppTexts.earn,
-                                  fontSize: AppFontSizes.fontNenoSmall - 1.sp,
-                                  fontWeight: AppFontWeights.medium,
-                                  color: AppColors.whiteColor,
-                                ),
-                                CommonText(
-                                  text: AppTexts.earnAmount,
-                                  fontSize: AppFontSizes.fontNenoSmall + 1.sp,
-                                  fontWeight: AppFontWeights.bold,
-                                  color: AppColors.gold,
-                                ),
-                              ],
-                            ),
-                          ],
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  CommonText(
+                                    text: AppTexts.earn,
+                                    fontSize: AppFontSizes.fontNenoSmall - 1.sp,
+                                    fontWeight: AppFontWeights.medium,
+                                    color: AppColors.whiteColor,
+                                  ),
+                                  CommonText(
+                                    text: AppTexts.earnAmount,
+                                    fontSize: AppFontSizes.fontNenoSmall + 1.sp,
+                                    fontWeight: AppFontWeights.bold,
+                                    color: AppColors.gold,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
 

@@ -21,5 +21,9 @@ class AppRoutes {
   static const addAddress = '/addAddress';
   static const coupons = '/coupons';
   static const serviceListing = '/service-listing';
+  static const referEarn        = '/refer-earn';
+  static const referEarnJourney = '/refer-earn/journey';
+  static const referEarnCoins   = '/refer-earn/coins';
+  static const referEarnFaq     = '/refer-earn/faq';
 }
 

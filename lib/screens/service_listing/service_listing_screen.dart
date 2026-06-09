@@ -27,7 +27,6 @@ class ServiceListingScreen extends GetView<ServiceListingController> {
       body: Column(
         children: [
            ServiceListingCategoryTabsWidget(),
-
           Expanded(
             child: Obx(() {
               final isOfferSelected = controller.isOfferSelected;

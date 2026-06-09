@@ -21,8 +21,10 @@ class HomeExploreCategoriesWidget extends GetView<HomeController> {
       children: [
         Padding(
           padding: EdgeInsets.fromLTRB(
-            AppDimensions.paddingMedium.w, 20.h,
-            AppDimensions.paddingMedium.w, 12.h,
+            AppDimensions.paddingMedium.w,
+            20.h,
+            AppDimensions.paddingMedium.w,
+            12.h,
           ),
           child: CommonText(
             text: AppTexts.exploreOurCategories,
@@ -44,15 +46,11 @@ class HomeExploreCategoriesWidget extends GetView<HomeController> {
 
               return GestureDetector(
                 onTap: () {
-                  Get.toNamed(
-                    AppRoutes.serviceListing,
-                  );
+                  Get.toNamed(AppRoutes.serviceListing);
                 },
                 child: Container(
                   width: 70.w,
-                  margin: EdgeInsets.only(
-                    right: AppDimensions.spacingLarge.w,
-                  ),
+                  margin: EdgeInsets.only(right: AppDimensions.spacingLarge.w),
                   child: Column(
                     children: [
                       Stack(
@@ -92,19 +90,15 @@ class HomeExploreCategoriesWidget extends GetView<HomeController> {
                                 ),
                                 child: CommonText(
                                   text: AppTexts.newText,
-                                  fontSize:
-                                  AppFontSizes.fontNenoSmall,
+                                  fontSize: AppFontSizes.fontNenoSmall,
                                   color: AppColors.whiteColor,
-                                  fontWeight:
-                                  AppFontWeights.medium,
+                                  fontWeight: AppFontWeights.medium,
                                 ),
                               ),
                             ),
                         ],
                       ),
-                      Spacing.height(
-                        AppDimensions.spacingSmall,
-                      ),
+                      Spacing.height(AppDimensions.spacingSmall),
                       CommonText(
                         text: category['label'],
                         fontSize: AppFontSizes.fontNenoSmall,
