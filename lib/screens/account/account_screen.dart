@@ -175,40 +175,45 @@ class AccountScreen extends GetView<AccountController> {
                   ),
                 ),
                 Obx(
-                  () => Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: AppDimensions.spacingLarge.w,
-                      vertical: 6.h,
-                    ),
-                    decoration: BoxDecoration(
-                      color: AppColors.blackColor,
-                      border: Border.all(color: AppColors.errorColor),
-                      borderRadius: BorderRadius.circular(
-                        AppDimensions.radiusXLarge.r,
+                  () => GestureDetector(
+                    onTap: (){
+                      Get.toNamed(AppRoutes.eliteMembership);
+                    },
+                    child: Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: AppDimensions.spacingLarge.w,
+                        vertical: 6.h,
                       ),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Icon(
-                          Icons.bolt,
-                          color: AppColors.goldColor,
-                          size: AppDimensions.iconSmall.sp,
+                      decoration: BoxDecoration(
+                        color: AppColors.blackColor,
+                        border: Border.all(color: AppColors.errorColor),
+                        borderRadius: BorderRadius.circular(
+                          AppDimensions.radiusXLarge.r,
                         ),
-                        Spacing.width(AppDimensions.spacingSmall.w),
-                        CommonText(
-                          text: '${controller.ymCoins.value}',
-                          fontSize: AppFontSizes.fontSmall,
-                          fontWeight: AppFontWeights.semiBold,
-                          color: AppColors.whiteColor,
-                        ),
-                        SizedBox(width: AppDimensions.spacingSmall.w),
-                        Icon(
-                          Icons.info_outline,
-                          color: AppColors.errorColor,
-                          size: AppDimensions.iconSmall.sp,
-                        ),
-                      ],
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.bolt,
+                            color: AppColors.goldColor,
+                            size: AppDimensions.iconSmall.sp,
+                          ),
+                          Spacing.width(AppDimensions.spacingSmall.w),
+                          CommonText(
+                            text: '${controller.ymCoins.value}',
+                            fontSize: AppFontSizes.fontSmall,
+                            fontWeight: AppFontWeights.semiBold,
+                            color: AppColors.whiteColor,
+                          ),
+                          SizedBox(width: AppDimensions.spacingSmall.w),
+                          Icon(
+                            Icons.info_outline,
+                            color: AppColors.errorColor,
+                            size: AppDimensions.iconSmall.sp,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -283,8 +288,10 @@ class AccountScreen extends GetView<AccountController> {
                 ),
                 SizedBox(width: AppDimensions.spacingMedium.w),
                 CommonButton(
-                  text: 'Join Elite @ ₹249',
-                  onPressed: () {},
+                  text: AppTexts.joinElite,
+                  onPressed: () {
+                    Get.toNamed(AppRoutes.eliteMembership);
+                  },
                   backgroundColor: AppColors.darkColor,
                   fontSize: 11.sp,
                   height: 36.h,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:yes_madam/controller/home/home_controller.dart';
+import 'package:yes_madam/routes/app_routes.dart';
 import 'package:yes_madam/utils/app_colors.dart';
 import 'package:yes_madam/utils/app_dimensions.dart';
 import 'package:yes_madam/utils/app_font_sizes.dart';
@@ -41,73 +42,80 @@ class HomeExploreCategoriesWidget extends GetView<HomeController> {
             itemBuilder: (_, index) {
               final category = controller.categories[index];
 
-              return Container(
-                width: 70.w,
-                margin: EdgeInsets.only(
-                  right: AppDimensions.spacingLarge.w,
-                ),
-                child: Column(
-                  children: [
-                    Stack(
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            color: category['color'] as Color,
-                          ),
-                          child: Center(
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(14.r),
-                              child: Image.network(
-                                category['image'],
-                                fit: BoxFit.cover,
-                                height: 70.h,
-                                width: 110.w,
-                              ),
+              return GestureDetector(
+                onTap: () {
+                  Get.toNamed(
+                    AppRoutes.serviceListing,
+                  );
+                },
+                child: Container(
+                  width: 70.w,
+                  margin: EdgeInsets.only(
+                    right: AppDimensions.spacingLarge.w,
+                  ),
+                  child: Column(
+                    children: [
+                      Stack(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              color: category['color'] as Color,
                             ),
-                          ),
-                        ),
-
-                        if (category['isNew'] == true)
-                          Positioned(
-                            top: 1.h,
-                            right: 1.w,
-                            child: Container(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 6.w,
-                                vertical: 2.h,
-                              ),
-                              decoration: BoxDecoration(
-                                color: AppColors.maroonRed,
-                                borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(10.r),
-                                  topRight: Radius.circular(10.r),
+                            child: Center(
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(14.r),
+                                child: Image.network(
+                                  category['image'],
+                                  fit: BoxFit.cover,
+                                  height: 70.h,
+                                  width: 110.w,
                                 ),
                               ),
-                              child: CommonText(
-                                text: AppTexts.newText,
-                                fontSize:
-                                AppFontSizes.fontNenoSmall,
-                                color: AppColors.whiteColor,
-                                fontWeight:
-                                AppFontWeights.medium,
-                              ),
                             ),
                           ),
-                      ],
-                    ),
-                    Spacing.height(
-                      AppDimensions.spacingSmall,
-                    ),
-                    CommonText(
-                      text: category['label'],
-                      fontSize: AppFontSizes.fontNenoSmall,
-                      fontWeight: AppFontWeights.semiBold,
-                      color: AppColors.black,
-                      textAlign: TextAlign.center,
-                      softWrap: true,
-                      maxLines: 2,
-                    ),
-                  ],
+
+                          if (category['isNew'] == true)
+                            Positioned(
+                              top: 1.h,
+                              right: 1.w,
+                              child: Container(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 6.w,
+                                  vertical: 2.h,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: AppColors.maroonRed,
+                                  borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(10.r),
+                                    topRight: Radius.circular(10.r),
+                                  ),
+                                ),
+                                child: CommonText(
+                                  text: AppTexts.newText,
+                                  fontSize:
+                                  AppFontSizes.fontNenoSmall,
+                                  color: AppColors.whiteColor,
+                                  fontWeight:
+                                  AppFontWeights.medium,
+                                ),
+                              ),
+                            ),
+                        ],
+                      ),
+                      Spacing.height(
+                        AppDimensions.spacingSmall,
+                      ),
+                      CommonText(
+                        text: category['label'],
+                        fontSize: AppFontSizes.fontNenoSmall,
+                        fontWeight: AppFontWeights.semiBold,
+                        color: AppColors.black,
+                        textAlign: TextAlign.center,
+                        softWrap: true,
+                        maxLines: 2,
+                      ),
+                    ],
+                  ),
                 ),
               );
             },

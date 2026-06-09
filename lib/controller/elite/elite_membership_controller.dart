@@ -14,6 +14,12 @@ class EliteMembershipController extends GetxController {
   final int memberCount = 1076530;
   final expandedList = <bool>[].obs;
 
+  @override
+  void onInit() {
+    super.onInit();
+    initializeFaqs(faqs.length);
+  }
+
   void initializeFaqs(int count) {
     expandedList.assignAll(
       List.generate(count, (_) => false),
@@ -21,8 +27,10 @@ class EliteMembershipController extends GetxController {
   }
 
   void toggleFaq(int index) {
-    expandedList[index] = !expandedList[index];
+    faqs[index]['isExpanded'] = !(faqs[index]['isExpanded'] as bool);
+    faqs.refresh();
   }
+
   final RxList<Map<String, dynamic>> faqs = <Map<String, dynamic>>[
     {
       'question': 'What is YesMadam Elite membership?',

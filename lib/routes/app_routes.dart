@@ -18,5 +18,8 @@ class AppRoutes {
   static const profile = '/profile';
   static const eliteMembership = '/elite-membership';
   static const eliteFaqs = '/elite-faqs';
+  static const addAddress = '/addAddress';
+  static const coupons = '/coupons';
+  static const serviceListing = '/service-listing';
 }
 

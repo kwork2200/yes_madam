@@ -236,17 +236,19 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
           Row(
             children: [
               Container(
+                height: 30.h,width: 30.w,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
-                    image: NetworkImage('https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001882.png'),fit: BoxFit.cover
+                    image: NetworkImage('https://t3.ftcdn.net/jpg/06/01/50/96/360_F_601509638_jDwIDvlnryPRhXPsBeW1nXv90pdlbykC.jpg'),fit: BoxFit.cover
                   ),
                 ),
               ),
-              Spacing.width(12),
+              Spacing.width(8),
+
               CommonText(
                 text: AppTexts.elitePrefix + AppTexts.eliteDiscount + AppTexts.bookingOffer,
-                fontSize: AppFontSizes.fontLarge - 2.sp,
+                fontSize: AppFontSizes.fontLarge - 3.sp,
                 fontWeight: AppFontWeights.semiBold,
                 color: AppColors.whiteColor,
               ),
@@ -516,7 +518,7 @@ class EliteMembershipScreen extends GetView<EliteMembershipController> {
       width: double.infinity,
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
       decoration: BoxDecoration(
-        color: const Color(0xFFFFF3E0),
+        color: AppColors.whiteColor,
         borderRadius: BorderRadius.circular(AppDimensions.radiusMedium.r),
       ),
       child: RichText(

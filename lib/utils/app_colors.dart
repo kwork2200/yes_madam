@@ -51,4 +51,4 @@ class AppColors {
   static const Color lightGreen = Color(0xFF6AA765);
   static const orange = Color(0xFFE65100);
   static const eliteBg = Color(0xFF1A1A1A);
-}
+  static const Color babyPink = Color(0xFFFFE3EA);}

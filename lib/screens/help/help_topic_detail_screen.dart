@@ -88,6 +88,7 @@ class _HelpTopicDetailScreenState extends State<HelpTopicDetailScreen> {
                     text: widget.answer,
                     fontSize: AppFontSizes.fontMedium,
                     color: AppColors.darkColor,
+                    softWrap: true,
                     maxLines: 20,
                   ),
                 ],
@@ -179,14 +180,30 @@ class _FeedbackBottomSheetState extends State<_FeedbackBottomSheet> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CommonText(
-            text: 'Tell us how can we improve?',
-            fontSize: AppFontSizes.fontXMedium,
-            fontWeight: AppFontWeights.bold,
-            color: AppColors.darkColor,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: CommonText(
+                  text: 'Tell us how can we improve?',
+                  fontSize: AppFontSizes.fontXMedium,
+                  fontWeight: AppFontWeights.bold,
+                  color: AppColors.darkColor,
+                ),
+              ),
+              IconButton(
+                onPressed: () => Navigator.pop(context),
+                icon: Icon(
+                  Icons.close,
+                  color: AppColors.darkColor,
+                  size: 24.sp,
+                ),
+                padding: EdgeInsets.zero,
+                constraints: const BoxConstraints(),
+              ),
+            ],
           ),
           SizedBox(height: AppDimensions.spacingLarge.h),
-
           ..._options.asMap().entries.map((entry) {
             final isSelected = _selectedIndex == entry.key;
             return GestureDetector(
@@ -197,8 +214,8 @@ class _FeedbackBottomSheetState extends State<_FeedbackBottomSheet> {
                 child: Row(
                   children: [
                     Container(
-                      width: 22.w,
-                      height: 22.w,
+                      width: 18.w,
+                      height: 18.w,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         border: Border.all(
@@ -229,12 +246,10 @@ class _FeedbackBottomSheetState extends State<_FeedbackBottomSheet> {
               ),
             );
           }),
-
           SizedBox(height: AppDimensions.spacingLarge.h),
-
           SizedBox(
             width: double.infinity,
-            height: 52.h,
+            height: 38.h,
             child: ElevatedButton(
               onPressed: _selectedIndex == null ? null : _submit,
               style: ElevatedButton.styleFrom(
@@ -242,7 +257,7 @@ class _FeedbackBottomSheetState extends State<_FeedbackBottomSheet> {
                 disabledBackgroundColor: AppColors.themeColor.withOpacity(0.5),
                 shape: RoundedRectangleBorder(
                   borderRadius:
-                  BorderRadius.circular(AppDimensions.radiusMedium.r),
+                  BorderRadius.circular(AppDimensions.radiusSmall.r),
                 ),
               ),
               child: _isSubmitting

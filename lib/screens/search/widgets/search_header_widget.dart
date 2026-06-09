@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:yes_madam/utils/app_colors.dart';
 import 'package:yes_madam/widgets/components/search_text_field.dart';
 
@@ -10,7 +11,8 @@ class SearchHeaderWidget extends StatelessWidget {
   final ValueChanged<String> onChanged;
   final VoidCallback onClear;
 
-  const SearchHeaderWidget({super.key,
+  const SearchHeaderWidget({
+    super.key,
     required this.controller,
     required this.query,
     required this.onBack,
@@ -31,7 +33,13 @@ class SearchHeaderWidget extends StatelessWidget {
               hintText: 'Search for waxing, facial, spa, & more',
               onChanged: onChanged,
               hidePrefixIcon: false,
-              prefixIcon: Icon(Icons.arrow_back_ios, color: AppColors.blackColor),
+              prefixIcon: InkWell(
+                onTap: () {
+                  Get.back();
+                },
+                child: Icon(Icons.arrow_back_ios, color: AppColors.blackColor),
+              ),
+
               contentPadding: EdgeInsets.symmetric(vertical: 6.h),
               hintColor: AppColors.greyColor,
               showClearIcon: query.isNotEmpty,

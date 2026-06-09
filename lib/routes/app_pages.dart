@@ -1,23 +1,27 @@
 import 'package:get/get.dart';
-import 'package:yes_madam/bindings/about_us_binding.dart';
-import 'package:yes_madam/bindings/account_binding.dart';
+import 'package:yes_madam/bindings/about_us/about_us_binding.dart';
+import 'package:yes_madam/bindings/account/account_binding.dart';
+import 'package:yes_madam/bindings/address/add_address_binding.dart';
 import 'package:yes_madam/bindings/bottom_nav_bar_binding.dart';
-import 'package:yes_madam/bindings/contact_us_binding.dart';
+import 'package:yes_madam/bindings/contact_us/contact_us_binding.dart';
+import 'package:yes_madam/bindings/coupon/coupons_binding.dart';
 import 'package:yes_madam/bindings/elite_membership_binding.dart';
-import 'package:yes_madam/bindings/home_binding.dart';
-import 'package:yes_madam/bindings/location_binding.dart';
-import 'package:yes_madam/bindings/login_binding.dart';
-import 'package:yes_madam/bindings/notifications_binding.dart';
-import 'package:yes_madam/bindings/otp_binding.dart';
-import 'package:yes_madam/bindings/profile_binding.dart';
-import 'package:yes_madam/bindings/search_binding.dart';
-import 'package:yes_madam/bindings/splash_binding.dart';
+import 'package:yes_madam/bindings/home/home_binding.dart';
+import 'package:yes_madam/bindings/location/location_binding.dart';
+import 'package:yes_madam/bindings/login/login_binding.dart';
+import 'package:yes_madam/bindings/notification/notifications_binding.dart';
+import 'package:yes_madam/bindings/otp/otp_binding.dart';
+import 'package:yes_madam/bindings/profile/profile_binding.dart';
+import 'package:yes_madam/bindings/search/search_binding.dart';
+import 'package:yes_madam/bindings/splash/splash_binding.dart';
+import 'package:yes_madam/bindings/service_listing/service_listing_binding.dart';
 import 'package:yes_madam/screens/about_us/about_us_screen.dart';
 import 'package:yes_madam/screens/account/account_screen.dart';
+import 'package:yes_madam/screens/address/add_address_screen.dart';
 import 'package:yes_madam/screens/contact_us/contact_us_screen.dart';
+import 'package:yes_madam/screens/coupon/coupons_screen.dart';
 import 'package:yes_madam/screens/elite/elite_faqs_screen.dart';
 import 'package:yes_madam/screens/elite/elite_membership_screen.dart';
-import 'package:yes_madam/screens/help/help_screen.dart';
 import 'package:yes_madam/screens/home/home_screen.dart';
 import 'package:yes_madam/screens/login/login_screen.dart';
 import 'package:yes_madam/screens/notifications/notifications_screen.dart';
@@ -27,6 +31,7 @@ import 'package:yes_madam/screens/location/location_screen.dart';
 import 'package:yes_madam/screens/privacy_policy/privacy_policy_screen.dart';
 import 'package:yes_madam/screens/profile/profile_screen.dart';
 import 'package:yes_madam/screens/search/search_screen.dart';
+import 'package:yes_madam/screens/service_listing/service_listing_screen.dart';
 import 'package:yes_madam/screens/splash/splash_screen.dart';
 import 'package:yes_madam/screens/terms_condition/terms_condition_screen.dart';
 import 'app_routes.dart';
@@ -109,10 +114,19 @@ class AppPages {
       binding: EliteMembershipBinding(),
     ),
     GetPage(
-      name: AppRoutes.help,
-      page: () => const HelpScreen(),
-      // binding: EliteMembershipBinding(),
+      name: AppRoutes.addAddress,
+      page: () => const AddAddressScreen(),
+      binding: AddAddressBinding(),
     ),
-
+    GetPage(
+      name: AppRoutes.coupons,
+      page: () => CouponsScreen(onApply: (String code) {}),
+      binding: CouponsBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.serviceListing,
+      page: () => ServiceListingScreen(),
+      binding: StoreListingBinding(),
+    ),
   ];
 }

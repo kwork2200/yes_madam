@@ -13,6 +13,7 @@ import 'package:yes_madam/utils/app_images.dart';
 import 'package:yes_madam/utils/app_texts.dart';
 import 'package:yes_madam/widgets/common/common_text.dart';
 import 'package:yes_madam/widgets/components/spacing_widget.dart';
+import 'package:yes_madam/widgets/show_address_bottom_sheet.dart';
 
 class HomeBannerWidget extends GetView<HomeController> {
   const HomeBannerWidget({super.key});
@@ -49,51 +50,57 @@ class HomeBannerWidget extends GetView<HomeController> {
                   child: Row(
                     children: [
                       Expanded(
-                        child: Row(
-                          children: [
-                            Lottie.asset(
-                              AppImages.locationLottie,
-                              width: 30.w,
-                              height: 30.h,
-                            ),
-
-                            Spacing.width(AppDimensions.spacingSmall),
-
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Flexible(
-                                        child: CommonText(
-                                          text: AppTexts.locationTitle,
-                                          fontSize: AppFontSizes.fontMedium,
-                                          fontWeight: AppFontWeights.bold,
-                                          color: AppColors.whiteColor,
-                                          maxLines: 1,
-                                        ),
-                                      ),
-                                      Icon(
-                                        Icons.keyboard_arrow_down,
-                                        color: AppColors.whiteColor,
-                                        size: 18.sp,
-                                      ),
-                                    ],
-                                  ),
-                                  CommonText(
-                                    text: AppTexts.locationAddress,
-                                    fontSize: AppFontSizes.fontNenoSmall,
-                                    fontWeight: AppFontWeights.semiBold,
-                                    color: AppColors.whiteColor,
-                                    maxLines: 1,
-                                  ),
-                                ],
+                        child: GestureDetector(
+                          onTap: () {
+                            print("safdewfdf");
+                            GlobalSheets.showAddressBottomSheet();
+                          },
+                          child: Row(
+                            children: [
+                              Lottie.asset(
+                                AppImages.locationLottie,
+                                width: 30.w,
+                                height: 30.h,
                               ),
-                            ),
-                          ],
+
+                              Spacing.width(AppDimensions.spacingSmall),
+
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Flexible(
+                                          child: CommonText(
+                                            text: AppTexts.locationTitle,
+                                            fontSize: AppFontSizes.fontMedium,
+                                            fontWeight: AppFontWeights.bold,
+                                            color: AppColors.whiteColor,
+                                            maxLines: 1,
+                                          ),
+                                        ),
+                                        Icon(
+                                          Icons.keyboard_arrow_down,
+                                          color: AppColors.whiteColor,
+                                          size: 18.sp,
+                                        ),
+                                      ],
+                                    ),
+                                    CommonText(
+                                      text: AppTexts.locationAddress,
+                                      fontSize: AppFontSizes.fontNenoSmall,
+                                      fontWeight: AppFontWeights.semiBold,
+                                      color: AppColors.whiteColor,
+                                      maxLines: 1,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
 
@@ -142,32 +149,37 @@ class HomeBannerWidget extends GetView<HomeController> {
                         ),
                       ),
 
-                      Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 8.w,
-                          vertical: 6.h,
-                        ),
-                        decoration: BoxDecoration(
-                          color: AppColors.eliteBg,
-                          borderRadius: BorderRadius.circular(
-                            AppDimensions.radiusCircle.r,
+                      GestureDetector(
+                        onTap: () {
+                          Get.toNamed(AppRoutes.eliteMembership);
+                        },
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 8.w,
+                            vertical: 6.h,
                           ),
-                        ),
-                        child: Column(
-                          children: [
-                            CommonText(
-                              text: AppTexts.buy,
-                              fontSize: AppFontSizes.fontNenoSmall - 1.sp,
-                              fontWeight: AppFontWeights.medium,
-                              color: AppColors.whiteColor,
+                          decoration: BoxDecoration(
+                            color: AppColors.eliteBg,
+                            borderRadius: BorderRadius.circular(
+                              AppDimensions.radiusCircle.r,
                             ),
-                            CommonText(
-                              text: AppTexts.elite,
-                              fontSize: AppFontSizes.fontNenoSmall + 1.sp,
-                              fontWeight: AppFontWeights.bold,
-                              color: AppColors.gold,
-                            ),
-                          ],
+                          ),
+                          child: Column(
+                            children: [
+                              CommonText(
+                                text: AppTexts.buy,
+                                fontSize: AppFontSizes.fontNenoSmall - 1.sp,
+                                fontWeight: AppFontWeights.medium,
+                                color: AppColors.whiteColor,
+                              ),
+                              CommonText(
+                                text: AppTexts.elite,
+                                fontSize: AppFontSizes.fontNenoSmall + 1.sp,
+                                fontWeight: AppFontWeights.bold,
+                                color: AppColors.gold,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],

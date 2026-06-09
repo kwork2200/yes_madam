@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:yes_madam/routes/app_routes.dart';
 import 'package:yes_madam/screens/help/help_screen.dart';
+import 'package:yes_madam/utils/app_colors.dart';
+import 'package:yes_madam/utils/app_dimensions.dart';
+import 'package:yes_madam/widgets/show_address_bottom_sheet.dart';
 
 class AccountController extends GetxController {
   final RxString userName = 'Krishna'.obs;
@@ -16,19 +20,21 @@ class AccountController extends GetxController {
   final RxString dob = ''.obs;
   final RxString gender = 'Female'.obs;
   final RxString maritalStatus = 'Single'.obs;
-
   final RxString profileImage = ''.obs;
-
-  final List<Map<String, dynamic>> quickActions = [
+  late final List<Map<String, dynamic>> quickActions = [
     {
       'icon': Icons.calendar_today_outlined,
       'title': 'My Bookings',
-      'onTap': () {},
+      'onTap': () {
+        Get.toNamed(AppRoutes.eliteMembership);
+      },
     },
     {
       'icon': Icons.location_on_outlined,
       'title': 'Addresses',
-      'onTap': () {},
+      'onTap': () {
+        showAddressBottomSheet();
+        },
     },
     {
       'icon': Icons.message_outlined,
@@ -45,11 +51,11 @@ class AccountController extends GetxController {
     }
   ].obs;
 
-  final presentAddress = {
+  final RxMap<String, dynamic> presentAddress = <String, dynamic>{
     'title': 'Sham Nagar',
-    'address':
-    'To, Surat - Kamrej Hwy, Sham Nagar, Sarthana Jakat Naka, Varachha, Surat, Gujarat 395008, India',
-  };
+    'address': 'To, Surat - Kamrej Hwy, Sham Nagar, Sarthana Jakat Naka, Varachha, Surat, Gujarat 395008, India',
+  }.obs;
+
 
   void logout() {
     Get.offAllNamed('/');
@@ -67,5 +73,47 @@ class AccountController extends GetxController {
     if (image != null) {
       profileImage.value = image.path;
     }
+  }
+
+  void showAddressBottomSheet() {
+    Get.bottomSheet(
+      Stack(
+        clipBehavior: Clip.none,
+        children: [
+
+          AddressBottomSheet(),
+          Positioned(
+            top: -45.h,
+            right: 10.w,
+            child: GestureDetector(
+              onTap: () => Get.back(),
+              child: Container(
+                padding: EdgeInsets.all(8.r),
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(
+                  Icons.close,
+                  color: AppColors.blackColor,
+                  size: 22.r,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+      backgroundColor: AppColors.whiteColor,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(AppDimensions.paddingMedium.r),
+        ),
+      ),
+      isScrollControlled: true,
+    );
+  }
+
+  void updatePresentAddress(String title, String address) {
+    presentAddress.value = {'title': title, 'address': address};
   }
 }

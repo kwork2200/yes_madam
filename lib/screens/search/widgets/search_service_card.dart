@@ -43,9 +43,10 @@ class SearchServiceCard extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Stack(
+                clipBehavior: Clip.none,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(right: 10.0.h),
+                    padding: EdgeInsets.only(right: 10.0.h, bottom: 10.h),
                     child: Container(
                       height: 130.h,
                       decoration: BoxDecoration(
@@ -79,135 +80,146 @@ class SearchServiceCard extends StatelessWidget {
                         ),
                       ),
                     ),
+                  Positioned(
+                    bottom: 16.h,
+                    right: 14.h,
+                    child: Obx(() {
+                      if (index >= counts.length) {
+                        return const SizedBox.shrink();
+                      }
+                      final count = counts[index];
+
+                      if (count == 0) {
+                        return GestureDetector(
+                          onTap: () => onAdd(index),
+                          child: Container(
+                            height: 26.h,
+                            width: 65.w,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: AppColors.whiteColor,
+                              borderRadius: BorderRadius.circular(6.r),
+                              border: Border.all(color: AppColors.themeColor),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.1),
+                                  blurRadius: 4,
+                                  offset: const Offset(0, 2),
+                                )
+                              ],
+                            ),
+                            child: CommonText(
+                              text: 'Add',
+                              fontSize: AppFontSizes.fontSmall,
+                              fontWeight: AppFontWeights.bold,
+                              color: AppColors.themeColor,
+                            ),
+                          ),
+                        );
+                      }
+
+                      return Container(
+                        height: 26.h,
+                        width: 75.w,
+                        padding: EdgeInsets.symmetric(horizontal: 6.w),
+                        decoration: BoxDecoration(
+                          color: AppColors.lightPink,
+                          border: Border.all(color: AppColors.themeColor),
+                          borderRadius: BorderRadius.circular(6.r),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.1),
+                              blurRadius: 4,
+                              offset: const Offset(0, 2),
+                            )
+                          ],
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            GestureDetector(
+                              onTap: () => onMinus(index),
+                              child: Icon(Icons.remove, size: 14.sp, color: AppColors.themeColor),
+                            ),
+                            CommonText(
+                              text: count.toString(),
+                              fontSize: AppFontSizes.fontSmall,
+                              fontWeight: AppFontWeights.bold,
+                              color: AppColors.themeColor,
+                            ),
+                            GestureDetector(
+                              onTap: () => onAdd(index),
+                              child: Icon(Icons.add, size: 14.sp, color: AppColors.themeColor),
+                            ),
+                          ],
+                        ),
+                      );
+                    }),
+                  ),
                 ],
               ),
               Expanded(
-                child: Padding(
-                  padding: EdgeInsets.all(6.w),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Flexible(
-                        child: CommonText(
-                          text: service['title'] as String,
-                          fontSize: AppFontSizes.fontSmall,
-                          fontWeight: AppFontWeights.medium,
-                          color: AppColors.black,
-                          maxLines: 2,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Flexible(
+                      child: CommonText(
+                        text: service['title'] as String,
+                        fontSize: AppFontSizes.fontSmall,
+                        fontWeight: AppFontWeights.medium,
+                        color: AppColors.black,
+                        maxLines: 2,
+                        softWrap: true,
+                      ),
+                    ),
+                    Spacing.height(AppDimensions.spacingSmall),
+                    Row(
+                      children: [
+                        Icon(Icons.access_time, size: 11.sp, color: AppColors.greyColor),
+                        Spacing.width(3),
+                        CommonText(
+                          text: service['duration'] as String,
+                          fontSize: AppFontSizes.fontNenoSmall,
+                          fontWeight: AppFontWeights.bold,
+                          color: AppColors.grey,
                         ),
-                      ),
-                      Spacing.height(AppDimensions.spacingSmall),
-                      Row(
-                        children: [
-                          Icon(Icons.access_time, size: 11.sp, color: AppColors.greyColor),
-                          Spacing.width(3),
-                          CommonText(
-                            text: service['duration'] as String,
+                      ],
+                    ),
+                    Spacing.height(AppDimensions.spacingSmall),
+                    Row(
+                      children: [
+                        CommonText(
+                          text: service['price'] as String,
+                          fontSize: AppFontSizes.fontNenoSmall,
+                          fontWeight: AppFontWeights.bold,
+                          color: AppColors.black,
+                        ),
+                        Spacing.width(5),
+                        Expanded(
+                          child: CommonText(
+                            text: "${service['mrp']} |",
                             fontSize: AppFontSizes.fontNenoSmall,
+                            color: AppColors.greyColor,
                             fontWeight: AppFontWeights.bold,
-                            color: AppColors.grey,
-                          ),
-                        ],
-                      ),
-                      Spacing.height(AppDimensions.spacingSmall),
-                      Row(
-                        children: [
-                          CommonText(
-                            text: service['price'] as String,
-                            fontSize: AppFontSizes.fontNenoSmall,
-                            fontWeight: AppFontWeights.bold,
-                            color: AppColors.black,
-                          ),
-                          Spacing.width(2),
-                          Expanded(
-                            child: CommonText(
-                              text: "${service['mrp']} |",
-                              fontSize: AppFontSizes.fontNenoSmall,
-                              color: AppColors.greyColor,
-                              fontWeight: AppFontWeights.bold,
-                              decoration: TextDecoration.lineThrough,
-                              decorationColor: AppColors.greyColor,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                          Spacing.width(2),
-                          CommonText(
-                            text: service['discount'] as String,
-                            fontSize: AppFontSizes.fontNenoSmall,
-                            fontWeight: AppFontWeights.bold,
-                            color: AppColors.lightGreen,
+                            decoration: TextDecoration.lineThrough,
+                            decorationColor: AppColors.greyColor,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                           ),
-                        ],
-                      ),
-                      Spacing.height(6),
-                      Obx(() {
-                        if (index >= counts.length) {
-                          return const SizedBox.shrink();
-                        }
-                        final count = counts[index];
-
-                        if (count == 0) {
-                          return GestureDetector(
-                            onTap: () => onAdd(index),
-                            child: Container(
-                              height: 24.h,
-                              width: double.infinity,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                color: AppColors.whiteColor,
-                                borderRadius: BorderRadius.circular(6.r),
-                                border: Border.all(color: AppColors.themeColor),
-                              ),
-                              child: CommonText(
-                                text: 'Add to Cart',
-                                fontSize: AppFontSizes.fontSmall,
-                                fontWeight: AppFontWeights.bold,
-                                color: AppColors.themeColor,
-                              ),
-                            ),
-                          );
-                        }
-
-                        return Container(
-                          height: 24.h,
-                          width: double.infinity,
-                          padding: EdgeInsets.symmetric(horizontal: 22.w),
-                          decoration: BoxDecoration(
-                            color: AppColors.lightPink,
-                            border: Border.all(color: AppColors.themeColor),
-                            borderRadius: BorderRadius.circular(6.r),
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              GestureDetector(
-                                onTap: () => onMinus(index),
-                                child: Icon(Icons.remove, size: 16.sp, color: AppColors.themeColor),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 10.w),
-                                child: CommonText(
-                                  text: count.toString(),
-                                  fontSize: AppFontSizes.fontSmall,
-                                  fontWeight: AppFontWeights.bold,
-                                  color: AppColors.themeColor,
-                                ),
-                              ),
-                              GestureDetector(
-                                onTap: () => onAdd(index),
-                                child: Icon(Icons.add, size: 16.sp, color: AppColors.themeColor),
-                              ),
-                            ],
-                          ),
-                        );
-                      }),
-                    ],
-                  ),
+                        ),
+                        Spacing.width(2),
+                        // CommonText(
+                        //   text: service['discount'] as String,
+                        //   fontSize: AppFontSizes.fontNenoSmall,
+                        //   fontWeight: AppFontWeights.bold,
+                        //   color: AppColors.lightGreen,
+                        //   maxLines: 1,
+                        //   overflow: TextOverflow.ellipsis,
+                        // ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
             ],

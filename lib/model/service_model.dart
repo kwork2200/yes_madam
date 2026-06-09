@@ -1,43 +1,67 @@
-class ServiceBenefit {
-  final String name;
-  final String desc;
-
-  const ServiceBenefit({required this.name, required this.desc});
-}
-
 class ServiceModel {
-  final int id;
-  final String title;
+  final String id;
+  final String name;
+  final String subtitle;
   final String duration;
-  final String price;
-  final String mrp;
-  final String discount;
-  final String badge;
-  final String sub;
-  final String rating;
-  final String benefitTitle;
-  final List<ServiceBenefit> benefits;
-  final String image;
+  final int price;
+  final int originalPrice;
+  final int discountPercent;
+  final double rating;
+  final int reviewCount;
+  final String recentBookings;
+  final String imageUrl;
+  final bool isBestseller;
+  final String tag;
+  final int quantity;
 
-  const ServiceModel({
+  ServiceModel({
     required this.id,
-    required this.title,
+    required this.name,
+    required this.subtitle,
     required this.duration,
     required this.price,
-    required this.mrp,
-    required this.discount,
-    required this.badge,
-    required this.sub,
+    required this.originalPrice,
+    required this.discountPercent,
     required this.rating,
-    required this.benefitTitle,
-    required this.benefits,
-    required this.image,
+    required this.reviewCount,
+    required this.recentBookings,
+    required this.imageUrl,
+    required this.isBestseller,
+    required this.tag,
+    this.quantity = 0,
   });
-}
 
-class RecentSearch {
-  final String label;
-  final String image;
-
-  const RecentSearch({required this.label, required this.image});
+  ServiceModel copyWith({
+    String? id,
+    String? name,
+    String? subtitle,
+    String? duration,
+    int? price,
+    int? originalPrice,
+    int? discountPercent,
+    double? rating,
+    int? reviewCount,
+    String? recentBookings,
+    String? imageUrl,
+    bool? isBestseller,
+    String? tag,
+    int? quantity,
+  }) {
+    return ServiceModel(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      subtitle: subtitle ?? this.subtitle,
+      duration: duration ?? this.duration,
+      price: price ?? this.price,
+      originalPrice: originalPrice ?? this.originalPrice,
+      discountPercent: discountPercent ?? this.discountPercent,
+      rating: rating ?? this.rating,
+      reviewCount: reviewCount ?? this.reviewCount,
+      recentBookings: recentBookings ?? this.recentBookings,
+      imageUrl: imageUrl ?? this.imageUrl,
+      isBestseller: isBestseller ?? this.isBestseller,
+      tag: tag ?? this.tag,
+      quantity: quantity ?? this.quantity,
+    );
+  }
 }
