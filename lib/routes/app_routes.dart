@@ -26,4 +26,5 @@ class AppRoutes {
   static const referEarnCoins = '/refer-earn/coins';
   static const referEarnFaq = '/refer-earn/faq';
   static const cart = '/cart';
+  static const checkout = '/checkout';
 }

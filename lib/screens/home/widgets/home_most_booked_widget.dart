@@ -27,15 +27,13 @@ class HomeMostBookedWidget extends GetView<HomeController> {
           borderRadius: BorderRadius.circular(AppDimensions.radiusMedium.r),
         ),
         child: Column(
-          crossAxisAlignment:
-          CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [
                 Expanded(
                   child: Column(
-                    crossAxisAlignment:
-                    CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       CommonText(
                         text: AppTexts.mostBooked,
@@ -66,18 +64,19 @@ class HomeMostBookedWidget extends GetView<HomeController> {
                       ],
                     ),
                   ),
-                  child: Lottie.asset(
-                    AppImages.locationLottie,
-                  ),
+                  child: Lottie.asset(AppImages.locationLottie),
                 ),
               ],
             ),
             Spacing.height(AppDimensions.spacingLarge),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: AppDimensions.paddingMedium.w, vertical: 4.h),
+              padding: EdgeInsets.symmetric(
+                horizontal: AppDimensions.paddingMedium.w,
+                vertical: 4.h,
+              ),
               decoration: BoxDecoration(
                 color: AppColors.themeColor,
-                borderRadius: BorderRadius.circular(12.r)
+                borderRadius: BorderRadius.circular(12.r),
               ),
               child: CommonText(
                 text: AppTexts.salonForWomen,
@@ -88,10 +87,10 @@ class HomeMostBookedWidget extends GetView<HomeController> {
             ),
             Spacing.height(AppDimensions.spacingLarge),
             SizedBox(
-              height: 240.h,
+              // height: 240.h,
+              height: MediaQuery.of(context).size.height * 0.32,
               child: ListView.builder(
-                scrollDirection:
-                Axis.horizontal,
+                scrollDirection: Axis.horizontal,
                 itemCount: controller.mostBooked.length,
                 itemBuilder: (_, index) {
                   return MostBookedServiceCard(
@@ -101,7 +100,7 @@ class HomeMostBookedWidget extends GetView<HomeController> {
                     onAdd: controller.incrementMostBooked,
                     onMinus: controller.decrementMostBooked,
                   );
-                  },
+                },
               ),
             ),
           ],
@@ -144,8 +143,13 @@ class MostBookedServiceCard extends StatelessWidget {
                   height: 130.h,
                   decoration: BoxDecoration(
                     color: AppColors.lightGrey,
-                      borderRadius: BorderRadius.circular(AppDimensions.radiusMedium.r),
-                      image: DecorationImage(image: NetworkImage("${item['image']}"),fit: BoxFit.cover)
+                    borderRadius: BorderRadius.circular(
+                      AppDimensions.radiusMedium.r,
+                    ),
+                    image: DecorationImage(
+                      image: NetworkImage("${item['image']}"),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
@@ -154,7 +158,10 @@ class MostBookedServiceCard extends StatelessWidget {
                   top: 0.h,
                   left: 0.w,
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 3.h),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 8.w,
+                      vertical: 3.h,
+                    ),
                     decoration: BoxDecoration(
                       color: AppColors.grey,
                       borderRadius: BorderRadius.only(
@@ -176,118 +183,128 @@ class MostBookedServiceCard extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.all(6.w),
               child: Column(
-                crossAxisAlignment:
-                CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                Flexible(
-                  child: CommonText(
-                    text: item['title'],
-                    fontSize: AppFontSizes.fontSmall,
-                    fontWeight: AppFontWeights.medium,
-                    color: AppColors.black,
-                    maxLines: 2,
-                  ),
-                ),
-                Spacing.height(AppDimensions.spacingSmall),
-                Row(
-                  children: [
-                    Icon(Icons.access_time, size: 11.sp, color: AppColors.greyColor),
-                    Spacing.width(3),
-                    CommonText(
-                      text: item['duration'],
-                      fontSize: AppFontSizes.fontNenoSmall,
-                      fontWeight: AppFontWeights.bold,
-                      color: AppColors.grey,
-                    ),
-                  ],
-                ),
-                Spacing.height(AppDimensions.spacingSmall),
-                Row(
-                  children: [
-                    CommonText(
-                      text: item['price'],
-                      fontSize: AppFontSizes.fontNenoSmall,
-                      fontWeight: AppFontWeights.bold,
+                  Flexible(
+                    child: CommonText(
+                      text: item['title'],
+                      fontSize: AppFontSizes.fontSmall,
+                      fontWeight: AppFontWeights.medium,
                       color: AppColors.black,
+                      maxLines: 2,
                     ),
-                    Spacing.width(3),
-                    CommonText(
-                      text: "${item['mrp']} |",
-                      fontSize: AppFontSizes.fontNenoSmall,
-                      color: AppColors.greyColor,
-                      fontWeight: AppFontWeights.bold,
-                      decoration: TextDecoration.lineThrough,
-                      decorationColor: AppColors.greyColor,
-                    ),
-                    Spacing.width(4),
-                    CommonText(
-                      text:
-                      '${item['discount']}',
-                      fontSize: AppFontSizes.fontNenoSmall,
-                      fontWeight: AppFontWeights.bold,
-                      color: AppColors.lightGreen,
-                    ),
-                  ],
-                ),
-                Spacing.height(6),
-                Obx(() {
-                  if (index >= counts.length) {
-                    return const SizedBox.shrink();
-                  }
-                  final count = counts[index];
+                  ),
+                  Spacing.height(AppDimensions.spacingSmall),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.access_time,
+                        size: 11.sp,
+                        color: AppColors.greyColor,
+                      ),
+                      Spacing.width(3),
+                      CommonText(
+                        text: item['duration'],
+                        fontSize: AppFontSizes.fontNenoSmall,
+                        fontWeight: AppFontWeights.bold,
+                        color: AppColors.grey,
+                      ),
+                    ],
+                  ),
+                  Spacing.height(AppDimensions.spacingSmall),
+                  Row(
+                    children: [
+                      CommonText(
+                        text: item['price'],
+                        fontSize: AppFontSizes.fontNenoSmall,
+                        fontWeight: AppFontWeights.bold,
+                        color: AppColors.black,
+                      ),
+                      Spacing.width(3),
+                      CommonText(
+                        text: "${item['mrp']} |",
+                        fontSize: AppFontSizes.fontNenoSmall,
+                        color: AppColors.greyColor,
+                        fontWeight: AppFontWeights.bold,
+                        decoration: TextDecoration.lineThrough,
+                        decorationColor: AppColors.greyColor,
+                      ),
+                      Spacing.width(4),
+                      CommonText(
+                        text: '${item['discount']}',
+                        fontSize: AppFontSizes.fontNenoSmall,
+                        fontWeight: AppFontWeights.bold,
+                        color: AppColors.lightGreen,
+                      ),
+                    ],
+                  ),
+                  Spacing.height(6),
+                  Obx(() {
+                    if (index >= counts.length) {
+                      return const SizedBox.shrink();
+                    }
+                    final count = counts[index];
 
-                  if (count == 0) {
-                    return CommonButton(
-                      text: AppTexts.addToCart,
-                      onPressed: () => onAdd(index),
+                    if (count == 0) {
+                      return CommonButton(
+                        text: AppTexts.addToCart,
+                        onPressed: () => onAdd(index),
+                        height: 24.h,
+                        backgroundColor: AppColors.whiteColor,
+                        borderColor: AppColors.themeColor,
+                        textColor: AppColors.themeColor,
+                      );
+                    }
+
+                    return Container(
                       height: 24.h,
-                      backgroundColor: AppColors.whiteColor,
-                      borderColor: AppColors.themeColor,
-                      textColor: AppColors.themeColor,
-                    );
-                  }
-
-                  return Container(
-                    height: 24.h,
-                    width: double.infinity,
-                    padding: EdgeInsets.symmetric(horizontal: 22.w),
-                    decoration: BoxDecoration(
-                      color: AppColors.lightPink,
-                      border: Border.all(color: AppColors.themeColor),
-                      borderRadius: BorderRadius.circular(6.r),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        GestureDetector(
-                          onTap: () => onMinus(index),
-                          child: Icon(Icons.remove, size: 16.sp, color: AppColors.themeColor),
-                        ),
-
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 10.w),
-                          child: CommonText(
-                            text: count.toString(),
-                            fontSize: AppFontSizes.fontSmall,
-                            fontWeight: AppFontWeights.bold,
-                            color: AppColors.themeColor,
+                      width: double.infinity,
+                      padding: EdgeInsets.symmetric(horizontal: 22.w),
+                      decoration: BoxDecoration(
+                        color: AppColors.lightPink,
+                        border: Border.all(color: AppColors.themeColor),
+                        borderRadius: BorderRadius.circular(6.r),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          GestureDetector(
+                            onTap: () => onMinus(index),
+                            child: Icon(
+                              Icons.remove,
+                              size: 16.sp,
+                              color: AppColors.themeColor,
+                            ),
                           ),
-                        ),
 
-                        GestureDetector(
-                          onTap: () => onAdd(index),
-                          child: Icon(Icons.add, size: 16.sp, color: AppColors.themeColor),
-                        ),
-                      ],
-                    ),
-                  );
-                })
-                  ],
-                ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 10.w),
+                            child: CommonText(
+                              text: count.toString(),
+                              fontSize: AppFontSizes.fontSmall,
+                              fontWeight: AppFontWeights.bold,
+                              color: AppColors.themeColor,
+                            ),
+                          ),
+
+                          GestureDetector(
+                            onTap: () => onAdd(index),
+                            child: Icon(
+                              Icons.add,
+                              size: 16.sp,
+                              color: AppColors.themeColor,
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  }),
+                ],
               ),
             ),
+          ),
         ],
       ),
     );

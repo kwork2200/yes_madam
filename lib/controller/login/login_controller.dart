@@ -27,7 +27,7 @@ class LoginController extends GetxController {
   }
 
   void skip() {
-    Get.offNamed(AppRoutes.bottomNavBar);
+    Get.offNamed(AppRoutes.checkout);
     // Get.offNamed(AppRoutes.location);
   }
 

@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:yes_madam/controller/search/search_controller.dart' as search;
 import 'package:yes_madam/utils/app_colors.dart';
 import 'package:yes_madam/utils/app_dimensions.dart';
 import 'package:yes_madam/utils/app_font_sizes.dart';
 import 'package:yes_madam/utils/app_font_weights.dart';
 import 'package:yes_madam/widgets/common/common_text.dart';
 import 'package:yes_madam/widgets/components/spacing_widget.dart';
-import 'search_service_card.dart';
 
 class RecentChipCard extends StatelessWidget {
   final Map<String, String> item;

@@ -5,6 +5,7 @@ import 'package:yes_madam/bindings/address/add_address_binding.dart';
 import 'package:yes_madam/bindings/bottom_nav/bottom_cart_widget.dart';
 import 'package:yes_madam/bindings/bottom_nav/bottom_nav_bar_binding.dart';
 import 'package:yes_madam/bindings/cart/cart_binding.dart';
+import 'package:yes_madam/bindings/checkout/checkout_binding.dart';
 import 'package:yes_madam/bindings/contact_us/contact_us_binding.dart';
 import 'package:yes_madam/bindings/coupon/coupons_binding.dart';
 import 'package:yes_madam/bindings/elite/elite_membership_binding.dart';
@@ -21,6 +22,7 @@ import 'package:yes_madam/bindings/service_listing/service_listing_binding.dart'
 import 'package:yes_madam/screens/about_us/about_us_screen.dart';
 import 'package:yes_madam/screens/account/account_screen.dart';
 import 'package:yes_madam/screens/address/add_address_screen.dart';
+import 'package:yes_madam/screens/checkout/checkout_screen.dart';
 import 'package:yes_madam/screens/contact_us/contact_us_screen.dart';
 import 'package:yes_madam/screens/coupon/coupons_screen.dart';
 import 'package:yes_madam/screens/elite/elite_faqs_screen.dart';
@@ -159,6 +161,11 @@ class AppPages {
       name: AppRoutes.cart,
       page: () => BottomCartWidget(),
       binding: CartBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.checkout,
+      page: () => CheckoutScreen(),
+      binding: CheckOutBinding(),
     ),
   ];
 }

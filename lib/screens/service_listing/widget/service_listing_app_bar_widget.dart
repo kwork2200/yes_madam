@@ -21,7 +21,6 @@ class _ServiceListingAppBarWidgetState
   late final PageController _pageController;
   int _currentPage = 0;
   Timer? _timer;
-  bool _isImageReady = false;
 
   final List<String> images = [
     "https://img.magnific.com/premium-psd/beauty-salon-banner-template_220346-5420.jpg?semt=ais_hybrid&w=740&q=80",
@@ -88,7 +87,6 @@ class _ServiceListingAppBarWidgetState
                   fit: BoxFit.cover,
                   loadingBuilder: (context, child, loadingProgress) {
                     if (loadingProgress == null) {
-                      _isImageReady = true;
                       return child;
                     }
                     return const SizedBox();
